@@ -51,7 +51,7 @@ reading.
 | ☁️ Config Backup                                       | Vibe Reading keeps settings local and has no config sync, backup, import, or export flow. |
 | 🧪 Beta Experience                                     | Experimental feature gates are removed.                                                   |
 | 🚦 Extension Activation Mode                           | Page translation is controlled by direct translation actions and page rules.              |
-| 📈 Statistics                                          | No local analytics dashboard or charting dependency.                                      |
+| 📈 Statistics                                          | No local statistics dashboard or charting dependency.                                     |
 | 🌍 Language Detection mode setting                     | Language detection always follows the LLM path; there is no basic/LLM mode knob.          |
 
 The result is deliberately simple: **Vibe Reading is for reading.**

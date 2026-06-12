@@ -1,5 +1,4 @@
 import type { LangCodeISO6393 } from "@/definitions"
-import type { FeatureUsageContext } from "@/types/analytics"
 import type {
   BackgroundGenerateTextPayload,
   BackgroundGenerateTextResponse,
@@ -16,7 +15,7 @@ interface ProtocolMap {
   // translation state
   getEnablePageTranslationByTabId: (data: { tabId: number }) => boolean | undefined
   getEnablePageTranslationFromContentScript: () => Promise<boolean>
-  tryToSetEnablePageTranslationByTabId: (data: { tabId: number, enabled: boolean, analyticsContext?: FeatureUsageContext }) => void
+  tryToSetEnablePageTranslationByTabId: (data: { tabId: number, enabled: boolean }) => void
   setAndNotifyPageTranslationStateChangedByManager: (data: { enabled: boolean, url?: string }) => void
   notifyTranslationStateChanged: (data: { enabled: boolean }) => void
   injectCurrentIframesAfterTopFrameNodeTranslation: () => void
@@ -25,7 +24,7 @@ interface ProtocolMap {
   getDetectedCode: () => LangCodeISO6393
   detectedPageLanguageChanged: (data: { detectedCode: LangCodeISO6393 }) => void
   // ask host to start page translation
-  askManagerToTogglePageTranslation: (data: { enabled: boolean, analyticsContext?: FeatureUsageContext }) => void
+  askManagerToTogglePageTranslation: (data: { enabled: boolean }) => void
   // request
   enqueueTranslateRequest: (data: { text: string, langConfig: Config["language"], providerConfig: ProviderConfig, scheduleAt: number, hash: string, webTitle?: string | null, webDescription?: string | null, webContent?: string | null, webSummary?: string | null }) => Promise<string>
   getOrGenerateWebPageSummary: (data: { webTitle: string, webContent: string, providerConfig: ProviderConfig }) => Promise<string | null>

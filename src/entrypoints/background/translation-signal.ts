@@ -1,5 +1,4 @@
 import type { LangCodeISO6393 } from "@/definitions"
-import type { FeatureUsageContext } from "@/types/analytics"
 import { browser, storage } from "#imports"
 import { normalizeDetectedCode } from "@/utils/config/languages"
 import { DEFAULT_DETECTED_CODE } from "@/utils/constants/config"
@@ -19,12 +18,8 @@ function notifyPageTranslationStateChanged(tabId: number, enabled: boolean) {
     .catch(error => logger.warn("Failed to notify page translation state change", error))
 }
 
-function requestManagerToTogglePageTranslation(
-  tabId: number,
-  enabled: boolean,
-  analyticsContext?: FeatureUsageContext,
-) {
-  void sendMessage("askManagerToTogglePageTranslation", { enabled, analyticsContext }, tabId)
+function requestManagerToTogglePageTranslation(tabId: number, enabled: boolean) {
+  void sendMessage("askManagerToTogglePageTranslation", { enabled }, tabId)
     .catch(error => logger.warn("Failed to ask page translation manager to toggle", error))
 }
 
@@ -120,12 +115,12 @@ export function translationMessage() {
   })
 
   onMessage("tryToSetEnablePageTranslationByTabId", async (msg) => {
-    const { tabId, enabled, analyticsContext } = msg.data
+    const { tabId, enabled } = msg.data
     if (!enabled) {
       await setPageTranslationEnabled(tabId, false)
       notifyPageTranslationStateChanged(tabId, false)
     }
-    requestManagerToTogglePageTranslation(tabId, enabled, analyticsContext)
+    requestManagerToTogglePageTranslation(tabId, enabled)
   })
 
   onMessage("setAndNotifyPageTranslationStateChangedByManager", async (msg) => {
