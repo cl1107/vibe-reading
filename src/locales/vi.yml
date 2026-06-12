@@ -120,32 +120,7 @@ options:
       description:
         openai: Cung cấp các mô hình như GPT-4o
         deepseek: Khuyến nghị sử dụng ở Trung Quốc
-        openrouter: Giao diện thống nhất cho nhiều nhà cung cấp LLM với giá trả theo lần sử dụng
-        ollama: Chạy các mô hình ngôn ngữ lớn cục bộ trên máy của bạn để bảo mật hoàn toàn
-        google: Các mô hình AI hàng đầu của Google với khả năng suy luận tiên tiến
-        anthropic: Các mô hình Claude nổi tiếng về độ an toàn và khả năng suy luận xuất sắc
-        xai: Công ty AI của Elon Musk cung cấp các mô hình Grok với truy cập dữ liệu thời gian thực
-        siliconflow: Nền tảng suy luận hiệu suất cao cho các mô hình Trung Quốc và quốc tế
-        tensdaq: Nền tảng MaaS đấu giá AI cách mạng với giá thị trường, loại bỏ giá cố định cao
         openaiCompatible: Bên thứ ba và tương thích API OpenAI
-        deeplx: API DeepL không chính thức
-        deepl: API DeepL chính thức
-        bedrock: Dịch vụ được quản lý bởi AWS cho các mô hình nền tảng cấp doanh nghiệp
-        groq: Phần cứng chuyên dụng cho tốc độ suy luận LLM siêu nhanh
-        deepinfra: Suy luận đám mây hiệu quả chi phí cho các mô hình mã nguồn mở phổ biến
-        mistral: Công ty AI châu Âu chuyên về các mô hình đa ngôn ngữ hiệu quả
-        togetherai: Nền tảng hợp tác để chạy và tinh chỉnh các mô hình mã nguồn mở
-        cohere: AI tập trung vào doanh nghiệp với khả năng đa ngôn ngữ và RAG mạnh mẽ
-        fireworks: Nền tảng suy luận sẵn sàng cho sản xuất cho các mô hình mã nguồn mở
-        cerebras: Suy luận AI siêu nhanh cho dịch thuật và phân tích văn bản nhanh
-        replicate: Truy cập các mô hình mã nguồn mở đa dạng cho các tác vụ dịch thuật chuyên biệt
-        perplexity: AI nâng cao kiến thức thời gian thực cho bản dịch ngữ cảnh và hỗ trợ đọc
-        vercel: Các mô hình AI tối ưu hóa cho dịch và phân tích nội dung web
-        volcengine: Nền tảng AI đám mây của ByteDance cung cấp các mô hình Doubao cho dịch và đọc
-        minimax: Nền tảng AI MiniMax cung cấp các mô hình MiniMax-M2 tiên tiến
-        alibaba: Dòng mô hình Qwen của Alibaba Cloud với khả năng suy luận và đa ngôn ngữ tiên tiến
-        moonshotai: Dòng mô hình Kimi của Moonshot AI với khả năng suy luận mạnh mẽ và ngữ cảnh dài
-        huggingface: API suy luận Hugging Face cung cấp quyền truy cập hàng nghìn mô hình mã nguồn mở
     apiKey:
       showAPIKey: Hiển thị API Key
     howToConfigure: Cấu hình như thế nào?

@@ -121,32 +121,7 @@ options:
       description:
         openai: Provides models like GPT-4o
         deepseek: Recommend to use in China
-        openrouter: Unified interface for multiple LLM providers with pay-per-use pricing
-        ollama: Run large language models locally on your machine for complete privacy
-        google: Google's flagship AI models with advanced reasoning capabilities
-        anthropic: Claude models known for safety and reasoning excellence
-        xai: Elon Musk's AI company offering Grok models with real-time data access
-        siliconflow: High-performance inference platform for Chinese and international models
-        tensdaq: Revolutionary bidding AI MaaS platform with market-driven pricing, eliminating high-cost fixed pricing
         openaiCompatible: Third-party and OpenAI API compatible
-        deeplx: Unofficial DeepL API
-        deepl: Official DeepL API
-        bedrock: AWS managed service for enterprise-grade foundation models
-        groq: Specialized hardware for ultra-fast LLM inference speeds
-        deepinfra: Cost-effective cloud inference for popular open-source models
-        mistral: European AI company specializing in efficient multilingual models
-        togetherai: Collaborative platform for running and fine-tuning open-source models
-        cohere: Enterprise-focused AI with strong multilingual and RAG capabilities
-        fireworks: Production-ready inference platform for open-source models
-        cerebras: Ultra-fast AI inference for rapid translation and text analysis
-        replicate: Access to diverse open-source models for specialized translation tasks
-        perplexity: Real-time knowledge-enhanced AI for contextual translations and reading assistance
-        vercel: Optimized AI models for web content translation and analysis
-        volcengine: ByteDance's cloud AI platform offering Doubao models for translation and reading
-        minimax: MiniMax AI platform offering advanced MiniMax-M2 models for text generation
-        alibaba: Alibaba Cloud's Qwen model series with advanced reasoning and multilingual capabilities
-        moonshotai: Moonshot AI's Kimi model series with strong reasoning and long-context capabilities
-        huggingface: Hugging Face Inference API providing access to thousands of open-source models
     apiKey:
       showAPIKey: Show API Key
     howToConfigure: How to configure?

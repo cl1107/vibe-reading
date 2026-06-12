@@ -3,31 +3,31 @@ import type { APIProviderConfig } from "@/types/config/provider"
 import { describe, expect, it, vi } from "vitest"
 import { duplicateProvider } from "../utils"
 
-type AlibabaProviderConfig = Extract<APIProviderConfig, { provider: "alibaba" }>
+type CustomProviderConfig = Extract<APIProviderConfig, { provider: "openai-compatible" }>
 
 describe("api provider utils", () => {
   it("duplicates an existing provider config with a fresh id and unique name", async () => {
-    const sourceProvider: AlibabaProviderConfig = {
-      id: "alibaba-original",
-      name: "Alibaba Cloud",
+    const sourceProvider: CustomProviderConfig = {
+      id: "custom-original",
+      name: "Custom Provider",
       description: "shared credentials",
       enabled: true,
-      provider: "alibaba",
+      provider: "openai-compatible",
       apiKey: "[REDACTED]",
-      baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      baseURL: "https://api.example.com/v1",
       temperature: 0.3,
-      providerOptions: { extraBody: { enable_thinking: false } },
+      providerOptions: { reasoningEffort: "minimal" },
       headers: { "x-test": "enabled" },
       model: {
-        model: "qwen3-max",
+        model: "use-custom-model",
         isCustomModel: true,
-        customModel: "qwen3-max",
+        customModel: "custom-model",
       },
     }
-    const existingCopy: AlibabaProviderConfig = {
+    const existingCopy: CustomProviderConfig = {
       ...sourceProvider,
-      id: "alibaba-copy",
-      name: "Alibaba Cloud 1",
+      id: "custom-copy",
+      name: "Custom Provider 1",
     }
     const providersConfig = [sourceProvider, existingCopy] as Config["providersConfig"]
     let updatedProviders: Config["providersConfig"] | undefined
@@ -47,11 +47,11 @@ describe("api provider utils", () => {
     expect(setProvidersConfig).toHaveBeenCalledOnce()
     expect(updatedProviders).toHaveLength(3)
 
-    const duplicatedProvider = updatedProviders?.[2] as AlibabaProviderConfig
+    const duplicatedProvider = updatedProviders?.[2] as CustomProviderConfig
     expect(duplicatedProvider).toEqual({
       ...sourceProvider,
       id: newProviderId,
-      name: "Alibaba Cloud 2",
+      name: "Custom Provider 2",
     })
     expect(duplicatedProvider).not.toBe(sourceProvider)
     expect(duplicatedProvider.model).not.toBe(sourceProvider.model)

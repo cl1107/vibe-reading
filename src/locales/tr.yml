@@ -120,32 +120,7 @@ options:
       description:
         openai: GPT-4o gibi modeller sağlar
         deepseek: Çin'de kullanım için önerilir
-        openrouter: Kullandıkça öde fiyatlandırmasıyla birden fazla LLM sağlayıcısı için birleşik arayüz
-        ollama: Tam gizlilik için büyük dil modellerini makinenizde yerel olarak çalıştırın
-        google: Gelişmiş akıl yürütme yeteneklerine sahip Google'ın amiral gemisi AI modelleri
-        anthropic: Güvenlik ve akıl yürütme mükemmelliğiyle tanınan Claude modelleri
-        xai: Gerçek zamanlı veri erişimli Grok modelleri sunan Elon Musk'ın AI şirketi
-        siliconflow: Çin ve uluslararası modeller için yüksek performanslı çıkarım platformu
-        tensdaq: Yüksek maliyetli sabit fiyatlandırmayı ortadan kaldıran pazar odaklı fiyatlandırma ile devrimci açık artırma AI MaaS platformu
         openaiCompatible: Üçüncü taraf ve OpenAI API uyumlu
-        deeplx: Resmi olmayan DeepL API
-        deepl: Resmi DeepL API
-        bedrock: Kurumsal düzeyde temel modeller için AWS yönetilen hizmeti
-        groq: Ultra hızlı LLM çıkarım hızları için özel donanım
-        deepinfra: Popüler açık kaynak modelleri için uygun maliyetli bulut çıkarımı
-        mistral: Verimli çok dilli modellerde uzmanlaşmış Avrupalı AI şirketi
-        togetherai: Açık kaynak modellerini çalıştırma ve ince ayar yapma için işbirlikçi platform
-        cohere: Güçlü çok dilli ve RAG yetenekleriyle kurumsal odaklı AI
-        fireworks: Açık kaynak modelleri için üretime hazır çıkarım platformu
-        cerebras: Hızlı çeviri ve metin analizi için ultra hızlı AI çıkarımı
-        replicate: Özel çeviri görevleri için çeşitli açık kaynak modellere erişim
-        perplexity: Bağlamsal çeviriler ve okuma yardımı için gerçek zamanlı bilgi ile güçlendirilmiş AI
-        vercel: Web içeriği çevirisi ve analizi için optimize edilmiş AI modelleri
-        volcengine: Çeviri ve okuma için Doubao modelleri sunan ByteDance'ın bulut AI platformu
-        minimax: Gelişmiş MiniMax-M2 modelleri sunan MiniMax AI platformu
-        alibaba: Alibaba Cloud'un Qwen model serisi, gelişmiş muhakeme ve çok dilli yeteneklerle
-        moonshotai: Moonshot AI'ın güçlü muhakeme ve uzun bağlam yeteneklerine sahip Kimi model serisi
-        huggingface: Binlerce açık kaynak modele erişim sağlayan Hugging Face Çıkarım API'si
     apiKey:
       showAPIKey: API Anahtarını Göster
     howToConfigure: Nasıl yapılandırılır?

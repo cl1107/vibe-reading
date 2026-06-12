@@ -5,7 +5,7 @@ import { useMemo } from "react"
 import { i18n } from "#imports"
 import ProviderSelector from "@/components/llm-providers/provider-selector"
 import { Field, FieldLabel } from "@/components/ui/base-ui/field"
-import { isAPIProviderConfig, isPureAPIProvider } from "@/types/config/provider"
+import { isAPIProviderConfig } from "@/types/config/provider"
 import { configAtom, configFieldsAtomMap, writeConfigAtom } from "@/utils/atoms/config"
 import { featureProviderConfigAtom } from "@/utils/atoms/provider"
 import { filterEnabledProvidersConfig } from "@/utils/config/helpers"
@@ -13,11 +13,9 @@ import { buildFeatureProviderPatch, FEATURE_PROVIDER_DEFS, getFeatureLabelI18nKe
 import { ConfigCard } from "../../components/config-card"
 import { SetApiKeyWarning } from "../../components/set-api-key-warning"
 
-/** Pure API providers (e.g. DeepLX) don't require an API key */
 function needsApiKeyWarning(providerConfig: ProviderConfig | null): boolean {
   return !!providerConfig
     && isAPIProviderConfig(providerConfig)
-    && !isPureAPIProvider(providerConfig.provider)
     && !providerConfig.apiKey
 }
 

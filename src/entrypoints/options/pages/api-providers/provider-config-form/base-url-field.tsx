@@ -3,7 +3,6 @@ import type { APIProviderConfig } from "@/types/config/provider"
 import { useStore } from "@tanstack/react-form"
 import { i18n } from "#imports"
 import { isNonCustomLLMProvider } from "@/types/config/provider"
-import { ConnectionTestButton } from "./components/connection-button"
 import { withForm } from "./form"
 
 export const BaseURLField = withForm({
@@ -11,10 +10,6 @@ export const BaseURLField = withForm({
   render: function Render({ form }) {
     const providerConfig = useStore(form.store, state => state.values)
     const providerType = providerConfig.provider
-
-    if (providerType === "deepl") {
-      return null
-    }
 
     const isOptionalBaseURL = isNonCustomLLMProvider(providerType)
     const labelText = `${i18n.t("options.apiProviders.form.fields.baseURL")}${isOptionalBaseURL
@@ -27,11 +22,7 @@ export const BaseURLField = withForm({
           <field.InputFieldAutoSave
             formForSubmit={form}
             label={labelText}
-            labelExtra={providerType === "ollama" && (
-              <ConnectionTestButton
-                providerConfig={providerConfig}
-              />
-            )}
+            labelExtra={undefined}
           />
         )}
       </form.AppField>

@@ -165,9 +165,9 @@ describe("providerOptionsField", () => {
       <ProviderOptionsFieldHarness
         initialConfig={{
           ...baseProviderConfig,
-          provider: "alibaba",
+          provider: "deepseek",
           model: {
-            model: "qwen3-max",
+            model: "deepseek-v4-flash",
             isCustomModel: false,
             customModel: null,
           },
@@ -177,7 +177,7 @@ describe("providerOptionsField", () => {
 
     expect(screen.getByLabelText("provider-options-editor")).toHaveAttribute(
       "placeholder",
-      JSON.stringify({ enableThinking: false }, null, 2),
+      JSON.stringify({ thinking: { type: "disabled" } }, null, 2),
     )
   })
 
@@ -186,11 +186,12 @@ describe("providerOptionsField", () => {
       <ProviderOptionsFieldHarness
         initialConfig={{
           ...baseProviderConfig,
-          provider: "groq",
+          provider: "openai-compatible",
+          baseURL: "https://api.example.com/v1",
           model: {
-            model: "qwen/qwen3-32b",
-            isCustomModel: false,
-            customModel: null,
+            model: "use-custom-model",
+            isCustomModel: true,
+            customModel: "gpt-5-mini",
           },
         }}
       />,
@@ -198,7 +199,7 @@ describe("providerOptionsField", () => {
 
     expect(screen.getByLabelText("provider-options-editor")).toHaveAttribute(
       "placeholder",
-      JSON.stringify({ enableThinking: false }, null, 2),
+      JSON.stringify({ reasoningEffort: "minimal" }, null, 2),
     )
   })
 

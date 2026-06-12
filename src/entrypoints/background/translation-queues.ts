@@ -12,7 +12,6 @@ import { db } from "@/utils/db/dexie/db"
 import { Sha256Hex } from "@/utils/hash"
 import { executeTranslate } from "@/utils/host/translate/execute-translate"
 import { normalizePromptContextValue } from "@/utils/host/translate/translate-text"
-import { normalizeTranslationOutput } from "@/utils/host/translate/translation-output-normalization"
 import { logger } from "@/utils/logger"
 import { onMessage } from "@/utils/message"
 import { getTranslatePrompt } from "@/utils/prompts/translate"
@@ -179,7 +178,7 @@ export async function setUpWebPageTranslationQueue() {
     if (hash) {
       const cached = await db.translationCache.get(hash)
       if (cached) {
-        return normalizeTranslationOutput(providerConfig, cached.translation)
+        return cached.translation
       }
     }
 
@@ -203,7 +202,6 @@ export async function setUpWebPageTranslationQueue() {
 
     // Cache the translation result if successful
     if (result && hash) {
-      result = normalizeTranslationOutput(providerConfig, result)
       await db.translationCache.put({
         key: hash,
         translation: result,

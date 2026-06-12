@@ -60,13 +60,10 @@ The result is deliberately simple: **Vibe Reading is for reading.**
 
 ```bash
 pnpm install
-SKIP_FREE_API=true pnpm test
+pnpm test
 pnpm type-check
 pnpm build
 ```
-
-`src/utils/host/translate/api/__tests__/free-api.test.ts` depends on live
-external translation services. Set `SKIP_FREE_API=true` for local validation.
 
 ## License And Attribution
 

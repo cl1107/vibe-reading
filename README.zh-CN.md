@@ -31,12 +31,10 @@ Vibe Reading 刻意保持小而专注：**只有阅读功能**。
 
 ```bash
 pnpm install
-SKIP_FREE_API=true pnpm test
+pnpm test
 pnpm type-check
 pnpm build
 ```
-
-`src/utils/host/translate/api/__tests__/free-api.test.ts` 依赖真实外部翻译服务。本地验证时请设置 `SKIP_FREE_API=true`。
 
 ## 授权与致谢
 

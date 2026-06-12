@@ -2,7 +2,7 @@ import { z } from "zod"
 
 import { langCodeISO6393Schema, langLevel } from "@/definitions"
 import { FEATURE_PROVIDER_DEFS } from "@/utils/constants/feature-providers"
-import { NON_API_TRANSLATE_PROVIDERS_MAP, providersConfigSchema } from "./provider"
+import { providersConfigSchema } from "./provider"
 import { translateConfigSchema } from "./translate"
 
 // Language schema
@@ -24,11 +24,6 @@ export const configSchema = z.object({
     const providerId = def.getProviderId(data)
 
     const validIds = new Set(providerIdsSet)
-    for (const [type, name] of Object.entries(NON_API_TRANSLATE_PROVIDERS_MAP)) {
-      if (def.isProvider(type))
-        validIds.add(name)
-    }
-
     if (!validIds.has(providerId)) {
       ctx.addIssue({
         code: "invalid_value",

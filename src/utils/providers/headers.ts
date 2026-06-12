@@ -1,14 +1,6 @@
 import type { LLMProviderTypes } from "@/types/config/provider"
-import { APP_NAME } from "@/utils/constants/app"
 
-export const DEFAULT_PROVIDER_HEADERS: Partial<Record<LLMProviderTypes, Record<string, string>>> = {
-  anthropic: {
-    "anthropic-dangerous-direct-browser-access": "true",
-  },
-  openrouter: {
-    "X-OpenRouter-Title": APP_NAME,
-  },
-}
+export const DEFAULT_PROVIDER_HEADERS: Partial<Record<LLMProviderTypes, Record<string, string>>> = {}
 
 function compactStringRecord(record?: Readonly<Record<string, unknown>>): Record<string, string> | undefined {
   if (!record) {

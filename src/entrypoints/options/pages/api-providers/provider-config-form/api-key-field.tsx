@@ -13,11 +13,6 @@ export const APIKeyField = withForm({
     const [showAPIKey, setShowAPIKey] = useState(false)
     const providerConfig = useStore(form.store, state => state.values)
 
-    const providerType = providerConfig.provider
-    if (providerType === "ollama") {
-      return <></>
-    }
-
     return (
       <form.AppField name="apiKey">
         {field => (

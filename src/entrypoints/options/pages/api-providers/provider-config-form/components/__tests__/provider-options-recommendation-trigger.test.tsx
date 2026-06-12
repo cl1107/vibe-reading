@@ -117,11 +117,11 @@ describe("providerOptionsRecommendationTrigger", () => {
     expect(onApply).toHaveBeenCalledWith({ reasoningEffort: "none" })
   })
 
-  it("does not render Kimi instruct recommendations based on model name alone", () => {
+  it("does not render when no recommendation matches the model name", () => {
     render(
       <ProviderOptionsRecommendationTrigger
         providerId="provider-1"
-        modelId="moonshotai/Kimi-K2-Instruct"
+        modelId="plain-model"
         onApply={vi.fn()}
       />,
     )

@@ -57,20 +57,6 @@ const llmProvider: ProviderConfig = {
   model: { model: "gpt-5-mini", isCustomModel: false, customModel: null },
 }
 
-const googleProvider: ProviderConfig = {
-  id: "google-translate-default",
-  name: "Google Translate",
-  provider: "google-translate",
-  enabled: true,
-}
-
-const microsoftProvider: ProviderConfig = {
-  id: "microsoft-translate-default",
-  name: "Microsoft Translate",
-  provider: "microsoft-translate",
-  enabled: true,
-}
-
 describe("translation queue helpers", () => {
   beforeEach(() => {
     vi.resetModules()
@@ -92,27 +78,20 @@ describe("translation queue helpers", () => {
     translationCachePutMock.mockResolvedValue(undefined)
   })
 
-  it("routes only llm providers through the batch queue", async () => {
+  it("routes supported providers through the batch queue", async () => {
     const { shouldUseBatchQueue } = await import("../translation-queues")
 
-    const deeplProvider: ProviderConfig = {
-      id: "deepl",
-      name: "DeepL",
-      provider: "deepl",
+    const customProvider: ProviderConfig = {
+      id: "custom-openai",
+      name: "Custom Provider",
+      provider: "openai-compatible",
       enabled: true,
       apiKey: "key",
+      baseURL: "https://api.example.com/v1",
+      model: { model: "use-custom-model", isCustomModel: true, customModel: "custom-model" },
     }
 
-    const deeplxProvider: ProviderConfig = {
-      id: "deeplx",
-      name: "DeepLX",
-      provider: "deeplx",
-      enabled: true,
-      baseURL: "https://api.deeplx.org",
-    }
-
-    expect(shouldUseBatchQueue(deeplProvider)).toBe(false)
-    expect(shouldUseBatchQueue(deeplxProvider)).toBe(false)
+    expect(shouldUseBatchQueue(customProvider)).toBe(true)
     expect(shouldUseBatchQueue(llmProvider)).toBe(true)
   })
 
@@ -153,7 +132,7 @@ describe("translation queue helpers", () => {
     )
   })
 
-  it("normalizes cached Google translations before returning them", async () => {
+  it("returns cached translations unchanged", async () => {
     translationCacheGetMock.mockResolvedValueOnce({
       key: "webpage-hash",
       translation: "L&#39;Iran chiama &quot;Dichiarazione&quot; &lt;span&gt;",
@@ -167,38 +146,13 @@ describe("translation queue helpers", () => {
       data: {
         text: "hello",
         langConfig: DEFAULT_CONFIG.language,
-        providerConfig: googleProvider,
+        providerConfig: llmProvider,
         scheduleAt: Date.now(),
         hash: "webpage-hash",
       },
     })
 
-    expect(result).toBe("L'Iran chiama \"Dichiarazione\" <span>")
-    expect(executeTranslateMock).not.toHaveBeenCalled()
-    expect(translationCachePutMock).not.toHaveBeenCalled()
-  })
-
-  it("does not normalize cached non-Google translations", async () => {
-    translationCacheGetMock.mockResolvedValueOnce({
-      key: "webpage-hash",
-      translation: "A&amp;B",
-    })
-
-    const { setUpWebPageTranslationQueue } = await import("../translation-queues")
-    await setUpWebPageTranslationQueue()
-
-    const handler = getRegisteredMessageHandler("enqueueTranslateRequest")
-    const result = await handler({
-      data: {
-        text: "hello",
-        langConfig: DEFAULT_CONFIG.language,
-        providerConfig: microsoftProvider,
-        scheduleAt: Date.now(),
-        hash: "webpage-hash",
-      },
-    })
-
-    expect(result).toBe("A&amp;B")
+    expect(result).toBe("L&#39;Iran chiama &quot;Dichiarazione&quot; &lt;span&gt;")
     expect(executeTranslateMock).not.toHaveBeenCalled()
     expect(translationCachePutMock).not.toHaveBeenCalled()
   })

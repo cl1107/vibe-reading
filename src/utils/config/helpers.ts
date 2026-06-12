@@ -1,7 +1,7 @@
 import type { Config } from "@/types/config/config"
-import type { APIProviderConfig, LLMProviderConfig, NonAPIProviderConfig, ProviderConfig, ProvidersConfig, PureAPIProviderConfig, TranslateProviderConfig } from "@/types/config/provider"
+import type { APIProviderConfig, LLMProviderConfig, ProviderConfig, ProvidersConfig, TranslateProviderConfig } from "@/types/config/provider"
 import type { FeatureKey } from "@/utils/constants/feature-providers"
-import { isAPIProviderConfig, isLLMProviderConfig, isNonAPIProviderConfig, isPureAPIProviderConfig, isTranslateProviderConfig } from "@/types/config/provider"
+import { isAPIProviderConfig, isLLMProviderConfig, isTranslateProviderConfig } from "@/types/config/provider"
 import { FEATURE_KEYS, FEATURE_PROVIDER_DEFS } from "@/utils/constants/feature-providers"
 
 export function getProviderConfigById<T extends ProviderConfig>(providersConfig: T[], providerId: string): T | undefined {
@@ -14,14 +14,6 @@ export function getLLMProvidersConfig(providersConfig: ProvidersConfig): LLMProv
 
 export function getAPIProvidersConfig(providersConfig: ProvidersConfig): APIProviderConfig[] {
   return providersConfig.filter(isAPIProviderConfig)
-}
-
-export function getPureAPIProvidersConfig(providersConfig: ProvidersConfig): PureAPIProviderConfig[] {
-  return providersConfig.filter(isPureAPIProviderConfig)
-}
-
-export function getNonAPIProvidersConfig(providersConfig: ProvidersConfig): NonAPIProviderConfig[] {
-  return providersConfig.filter(isNonAPIProviderConfig)
 }
 
 export function getTranslateProvidersConfig(providersConfig: ProvidersConfig): TranslateProviderConfig[] {

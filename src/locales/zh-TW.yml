@@ -120,32 +120,7 @@ options:
       description:
         openai: 提供 GPT-4o 等模型
         deepseek: 推薦在中國使用
-        openrouter: 多個 LLM 提供者的統一介面，按使用量付費
-        ollama: 本機大型模型服務
-        google: 具有先進推理能力的 Google 旗艦 AI 模型
-        anthropic: 以安全性和推理能力著稱的 Claude 模型
-        xai: 馬斯克的 AI 公司，提供具有即時數據存取能力的 Grok 模型
-        siliconflow: 面向中國和國際模型的高效能推理平台
-        tensdaq: 革命性競價 AI MaaS 平台，價格由市場供需決定，告別高成本固定定價
         openaiCompatible: OpenAI API 相容的第三方
-        deeplx: 非官方 DeepL API
-        deepl: 官方 DeepL API
-        bedrock: 面向企業級基礎模型的 AWS 託管服務
-        groq: 專注於超高速 LLM 推理速度的專用硬體
-        deepinfra: 面向熱門開源模型的經濟高效雲端推理
-        mistral: 專注於高效多語言模型的歐洲 AI 公司
-        togetherai: 用於執行和微調開源模型的協作平台
-        cohere: 具有強大多語言和 RAG 能力的企業級 AI
-        fireworks: 面向開源模型的生產就緒推理平台
-        cerebras: 超快速 AI 推理，適合快速翻譯和文字分析
-        replicate: 存取多樣化開源模型，適合專業翻譯任務
-        perplexity: 即時知識增強 AI，提供語境化翻譯和閱讀輔助
-        vercel: 針對網頁內容翻譯和分析優化的 AI 模型
-        volcengine: 字節跳動旗下雲平台，提供豆包系列大語言模型
-        minimax: MiniMax AI平台，提供先進的MiniMax-M2系列大語言模型
-        alibaba: 阿里雲通義千問系列模型，具備先進的推理和多語言能力
-        moonshotai: 月之暗面Kimi系列模型，具備強大的推理和長上下文能力
-        huggingface: Hugging Face推理API，提供數千種開源模型存取
     apiKey:
       showAPIKey: 顯示 API 金鑰
     howToConfigure: 如何設定？

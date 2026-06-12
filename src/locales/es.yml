@@ -121,32 +121,7 @@ options:
       description:
         openai: Proporciona modelos como GPT-4o
         deepseek: Recomendado para usar en China
-        openrouter: Interfaz unificada para varios proveedores LLM con precios de pago por uso
-        ollama: Ejecuta modelos de lenguaje grandes localmente en tu equipo con privacidad completa
-        google: Modelos AI principales de Google con capacidades avanzadas de razonamiento
-        anthropic: Modelos Claude conocidos por su seguridad y excelente razonamiento
-        xai: Empresa de AI de Elon Musk que ofrece modelos Grok con acceso a datos en tiempo real
-        siliconflow: Plataforma de inferencia de alto rendimiento para modelos chinos e internacionales
-        tensdaq: Plataforma revolucionaria de pujas AI MaaS con precios impulsados por el mercado, que elimina los altos precios fijos
         openaiCompatible: Compatible con API de terceros y OpenAI
-        deeplx: API de DeepL no oficial
-        deepl: API oficial de DeepL
-        bedrock: Servicio administrado de AWS para modelos fundacionales de nivel empresarial
-        groq: Hardware especializado para inferencia LLM ultrarrápida
-        deepinfra: Inferencia en la nube rentable para modelos populares de código abierto
-        mistral: Empresa europea de AI especializada en modelos multilingües eficientes
-        togetherai: Plataforma colaborativa para ejecutar y ajustar modelos de código abierto
-        cohere: AI enfocada en empresas con sólidas capacidades multilingües y RAG
-        fireworks: Plataforma de inferencia lista para producción para modelos de código abierto
-        cerebras: Inferencia AI ultrarrápida para traducción y análisis de texto rápidos
-        replicate: Acceso a diversos modelos de código abierto para tareas de traducción especializadas
-        perplexity: AI mejorada con conocimiento en tiempo real para traducciones contextuales y asistencia de lectura
-        vercel: Modelos AI optimizados para traducción y análisis de contenido web
-        volcengine: Plataforma cloud AI de ByteDance que ofrece modelos Doubao para traducción y lectura
-        minimax: Plataforma MiniMax AI que ofrece modelos avanzados MiniMax-M2 para generación de texto
-        alibaba: Serie de modelos Qwen de Alibaba Cloud con razonamiento avanzado y capacidades multilingües
-        moonshotai: Serie de modelos Kimi de Moonshot AI con razonamiento sólido y capacidades de contexto largo
-        huggingface: API de inferencia de Hugging Face que proporciona acceso a miles de modelos de código abierto
     apiKey:
       showAPIKey: Mostrar clave API
     howToConfigure: ¿Cómo configurar?

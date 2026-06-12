@@ -60,13 +60,13 @@ const baseProviderConfig: APIProviderConfig = {
   headers: undefined,
 }
 
-const anthropicProviderConfig: APIProviderConfig = {
+const deepseekProviderConfig: APIProviderConfig = {
   id: "provider-2",
-  name: "Anthropic",
+  name: "DeepSeek",
   enabled: true,
-  provider: "anthropic",
+  provider: "deepseek",
   model: {
-    model: "claude-haiku-4-5",
+    model: "deepseek-v4-flash",
     isCustomModel: false,
     customModel: null,
   },
@@ -113,7 +113,7 @@ function ProviderHeadersFieldSwitchHarness() {
 
   return (
     <>
-      <button type="button" onClick={() => setProviderConfig(anthropicProviderConfig)}>
+      <button type="button" onClick={() => setProviderConfig(deepseekProviderConfig)}>
         switch-provider
       </button>
       <ProviderHeadersField form={form} />

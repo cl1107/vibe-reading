@@ -15,12 +15,8 @@ vi.mock("@/utils/message", () => ({
   sendMessage: vi.fn(),
 }))
 
-vi.mock("@/utils/host/translate/api/microsoft", () => ({
-  microsoftTranslate: vi.fn(),
-}))
-
-vi.mock("@/utils/host/translate/api/google", () => ({
-  googleTranslate: vi.fn(),
+vi.mock("@/utils/host/translate/api/ai", () => ({
+  aiTranslate: vi.fn(),
 }))
 
 vi.mock("@/utils/prompts/translate", () => ({
@@ -36,8 +32,7 @@ vi.mock("@/utils/host/translate/webpage-summary", () => ({
 }))
 
 let mockSendMessage: any
-let mockMicrosoftTranslate: any
-let mockGoogleTranslate: any
+let mockAITranslate: any
 let mockGetConfigFromStorage: any
 let mockGetTranslatePrompt: any
 let mockGetOrCreateWebPageContext: any
@@ -49,8 +44,7 @@ describe("translate-text", () => {
     document.title = "Document Title"
     document.body.innerHTML = "<main>Body content</main>"
     mockSendMessage = vi.mocked((await import("@/utils/message")).sendMessage)
-    mockMicrosoftTranslate = vi.mocked((await import("@/utils/host/translate/api/microsoft")).microsoftTranslate)
-    mockGoogleTranslate = vi.mocked((await import("@/utils/host/translate/api/google")).googleTranslate)
+    mockAITranslate = vi.mocked((await import("@/utils/host/translate/api/ai")).aiTranslate)
     mockGetConfigFromStorage = vi.mocked((await import("@/utils/config/storage")).getLocalConfig)
     mockGetTranslatePrompt = vi.mocked((await import("@/utils/prompts/translate")).getTranslatePrompt)
     mockGetOrCreateWebPageContext = vi.mocked((await import("@/utils/host/translate/webpage-context")).getOrCreateWebPageContext)
@@ -88,8 +82,8 @@ describe("translate-text", () => {
         scheduleAt: expect.any(Number),
         hash: expect.any(String),
       }))
-      expect(mockGetOrCreateWebPageContext).not.toHaveBeenCalled()
-      expect(mockGetOrGenerateWebPageSummary).not.toHaveBeenCalled()
+      expect(mockGetOrCreateWebPageContext).toHaveBeenCalledTimes(1)
+      expect(mockGetOrGenerateWebPageSummary).toHaveBeenCalledTimes(1)
     })
   })
 
@@ -194,10 +188,16 @@ describe("translate-text", () => {
     }
 
     const providerConfig = {
-      id: "microsoft-default",
+      id: "openai-default",
       enabled: true,
-      name: "Microsoft Translator",
-      provider: "microsoft-translate" as const,
+      name: "OpenAI",
+      provider: "openai" as const,
+      apiKey: "sk-test",
+      model: {
+        model: "gpt-5-mini" as const,
+        isCustomModel: false,
+        customModel: null,
+      },
     }
 
     it("should return empty string for empty/whitespace input", async () => {
@@ -216,34 +216,19 @@ describe("translate-text", () => {
       expect(await executeTranslate("\u200B \u200B", langConfig, providerConfig, getTranslatePrompt)).toBe("")
 
       // Should translate valid content after removing zero-width spaces
-      mockMicrosoftTranslate.mockResolvedValue("你好")
+      mockAITranslate.mockResolvedValue("你好")
       const result = await executeTranslate("\u200B hello \u200B", langConfig, providerConfig, getTranslatePrompt)
       expect(result).toBe("你好")
       // Shared translation core should send minimally prepared text to the provider
-      expect(mockMicrosoftTranslate).toHaveBeenCalledWith("hello", "en", "zh")
+      expect(mockAITranslate).toHaveBeenCalledWith("hello", expect.any(String), providerConfig, getTranslatePrompt, undefined)
     })
 
     it("should trim translation result", async () => {
-      mockMicrosoftTranslate.mockResolvedValue("  测试结果  ")
+      mockAITranslate.mockResolvedValue("  测试结果  ")
 
       const result = await executeTranslate("test input", langConfig, providerConfig, getTranslatePrompt)
 
       expect(result).toBe("测试结果")
-    })
-
-    it("should decode Google translateHtml entities", async () => {
-      const googleProviderConfig = {
-        id: "google-translate-default",
-        enabled: true,
-        name: "Google Translate",
-        provider: "google-translate" as const,
-      }
-      mockGoogleTranslate.mockResolvedValue(" L&#39;Iran chiama &quot;Dichiarazione&quot; AT&amp;T &lt;span&gt; ")
-
-      const result = await executeTranslate("test input", langConfig, googleProviderConfig, getTranslatePrompt)
-
-      expect(result).toBe("L'Iran chiama \"Dichiarazione\" AT&T <span>")
-      expect(mockGoogleTranslate).toHaveBeenCalledWith("test input", "en", "zh")
     })
   })
 })

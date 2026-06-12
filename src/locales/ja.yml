@@ -120,32 +120,7 @@ options:
       description:
         openai: GPT-4oなどのモデルを提供
         deepseek: 中国国内での使用を推奨
-        openrouter: 複数のLLMプロバイダの統合インターフェース、従量課金制
-        ollama: ローカル大規模言語モデルサービス
-        google: 高度な推論能力を持つGoogleの主力AIモデル
-        anthropic: 安全性と推論能力に優れたClaudeモデル
-        xai: リアルタイムデータアクセス可能なGrokモデルを提供するイーロン・マスクのAI企業
-        siliconflow: 中国および国際モデル向けの高性能推論プラットフォーム
-        tensdaq: 革命的入札型AI MaaSプラットフォーム、市場の需給で価格が決まり高コスト固定料金を排除
         openaiCompatible: OpenAI API互換のサードパーティー
-        deeplx: 非公式 DeepL API
-        deepl: 公式 DeepL API
-        bedrock: エンタープライズグレードの基盤モデル向けAWSマネージドサービス
-        groq: 超高速LLM推論速度に特化したハードウェア
-        deepinfra: 人気のオープンソースモデル向けコスト効率的なクラウド推論
-        mistral: 効率的な多言語モデルに特化したヨーロッパのAI企業
-        togetherai: オープンソースモデルの実行とファインチューニングのための協働プラットフォーム
-        cohere: 強力な多言語およびRAG機能を持つエンタープライズ向けAI
-        fireworks: オープンソースモデル向けプロダクション対応推論プラットフォーム
-        cerebras: 高速翻訳とテキスト分析に最適な超高速AI推論
-        replicate: 専門的な翻訳タスクのための多様なオープンソースモデルへのアクセス
-        perplexity: 文脈的翻訳と読解支援のためのリアルタイム知識強化AI
-        vercel: ウェブコンテンツの翻訳と分析に最適化されたAIモデル
-        volcengine: ByteDanceのクラウドAIプラットフォーム、Doubaoモデルを提供
-        minimax: MiniMax AIプラットフォーム、先進的なMiniMax-M2モデルを提供
-        alibaba: アリババクラウドのQwenモデルシリーズ、高度な推論と多言語機能を備える
-        moonshotai: Moonshot AIのKimiモデルシリーズ、優れた推論と長コンテキスト能力
-        huggingface: Hugging Face推論API、数千のオープンソースモデルへのアクセスを提供
     apiKey:
       showAPIKey: APIキーを表示
     howToConfigure: 設定方法は?
