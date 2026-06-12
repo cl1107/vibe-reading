@@ -6,7 +6,6 @@ import { AutoTranslateWebsitePatterns } from "./auto-translate-website-patterns"
 import { ClearCacheConfig } from "./clear-cache-config"
 import { CustomTranslationStyle } from "./custom-translation-style"
 import { NeverAutoTranslateWebsitePatterns } from "./never-auto-translate-website-patterns"
-import { NodeTranslationHotkey } from "./node-translation-hotkey"
 import { PageTranslationShortcut } from "./page-translation-shortcut"
 import { PersonalizedPrompts } from "./personalized-prompt"
 import { PreloadConfig } from "./preload-config"
@@ -23,7 +22,6 @@ export function TranslationPage() {
       <TranslationMode />
       <TranslateRange />
       <PageTranslationShortcut />
-      <NodeTranslationHotkey />
       <CustomTranslationStyle />
       <AIContentAware />
       <PersonalizedPrompts />

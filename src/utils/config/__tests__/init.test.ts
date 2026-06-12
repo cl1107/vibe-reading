@@ -40,8 +40,6 @@ vi.mock("@/utils/logger", () => ({
 
 function buildStableConfig(): Config {
   const config = structuredClone(DEFAULT_CONFIG)
-  // In DEV mode, beta experience is enabled. Keep it true so no extra write is introduced.
-  config.betaExperience.enabled = true
   config.providersConfig = config.providersConfig.map((providerConfig) => {
     if (!isAPIProviderConfig(providerConfig)) {
       return providerConfig
@@ -106,9 +104,9 @@ describe("initializeConfig", () => {
     const config = buildStableConfig()
     const migrated = {
       ...config,
-      contextMenu: {
-        ...config.contextMenu,
-        enabled: false,
+      siteControl: {
+        ...config.siteControl,
+        mode: "whitelist" as const,
       },
     }
 

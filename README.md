@@ -10,10 +10,8 @@ configured by the user.
 ## Features
 
 - Page translation with bilingual and translation-only modes.
-- Selection translation, explanation, and text-to-speech.
 - Context-aware AI translation using page content.
-- YouTube subtitle translation.
-- Custom AI actions and prompt configuration.
+- Customizable translation providers, prompts, styles, and page rules.
 - Import/export of local configuration.
 
 ## Development

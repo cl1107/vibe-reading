@@ -7,9 +7,9 @@
  * or instruction-following-weak models. Field order matters: `reason` after
  * `code` would be a post-hoc justification with no accuracy benefit.
  *
- * Hard reasoning (thinking mode) is intentionally not used: detection sits on
- * the latency-sensitive TTS path, the task is simple, and reasoning toggles are
- * provider-specific while this prompt must stay provider-agnostic.
+ * Hard reasoning (thinking mode) is intentionally not used: the task is simple,
+ * and reasoning toggles are provider-specific while this prompt must stay
+ * provider-agnostic.
  */
 import type { LangCodeISO6393 } from "@/definitions"
 import z from "zod"

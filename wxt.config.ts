@@ -18,10 +18,8 @@ export default defineConfig({
       "storage",
       "tabs",
       "alarms",
-      "contextMenus",
       "scripting",
       "webNavigation",
-      ...(browser !== "firefox" ? ["offscreen", "sidePanel"] : []),
     ],
     host_permissions: [
       "*://*/*", // Required for scripting.executeScript in any frame

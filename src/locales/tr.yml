@@ -4,14 +4,9 @@ extDescription: Vibe Reading, herhangi bir web sitesinden dilleri derinlemesine 
 dataTypes:
   string: Metin
   number: Sayı
-contextMenu:
-  translate: Çevir
-  translateSelection: '"%s" Çevir'
-  showOriginal: Orijinali Göster
-sidePanel:
-  firefoxUserActionHint: Firefox'ta Vibe Reading'u tarayıcının kenar çubuğundan açın.
-  firefoxUserActionHelpText: Firefox kenar çubuğunu açmayı öğrenin
-  firefoxUserActionHelpUrl: https://support.mozilla.org/tr/kb/use-sidebar-access-tools-and-vertical-tabs
+languageCombobox:
+  searchLanguages: Search languages...
+  noLanguagesFound: No languages found
 popup:
   theme: Tema
   autoLang: Otomatik
@@ -19,8 +14,6 @@ popup:
   targetLang: Hedef
   translate: Çevir
   showOriginal: Orijinali Göster
-  enabledFloatingButton: Yüzen butonu etkinleştir
-  enabledSelectionToolbar: Seçim araç çubuğunu etkinleştir
   alwaysTranslate: Bu siteyi her zaman çevir
   addToWhitelist: Bu sitede uzantıyı etkinleştir
   addToBlacklist: Bu sitede uzantıyı devre dışı bırak
@@ -35,23 +28,12 @@ popup:
       translationOnly:
         current: "Geçerli mod: Yalnızca çeviri"
         action: İki dilli moda geçmek için tıklayın
-  hub:
-    tooltip: Birden fazla çeviri modeliyle aynı anda metin çevirin
   discord:
     tooltip: Geliştiricilerle bağlantı kurmak ve yeni özelliklere erken erişim sağlamak için Discord'a katılın
   blog:
     notification: Vibe Reading'da yenilikler
   aiSmartContext: AI Akıllı Bağlam
   aiSmartContextDescription: Çeviri kalitesini artırmak için web sayfası bağlamını kullanır. LLM çeviri sağlayıcısı gerektirir.
-  more:
-    title: Daha Fazla
-    translationHub: Çeviri Merkezi
-    joinDiscord: Discord'a Katıl
-    joinWechat: WeChat Grubuna Katıl
-    starGithub: Github'da Yıldız Ver
-    rateUs: Bizi Değerlendirin
-    ebook: Üçüncü Taraf E-kitap Okuyucu
-    tutorial: Rehber
 errorRecovery:
   title: Bir sorun oluştu
   description: Kurtarma modu etkin. Geçerli ayarlarınızı yedek olarak dışa aktarabilir, ardından ayarları sıfırlayıp tekrar deneyebilirsiniz.
@@ -75,17 +57,10 @@ options:
     noResults: Ayar bulunamadı
   sidebar:
     settings: Ayarlar
-    tools: Araçlar
     product: Ürün
-  tools:
-    translationHub: Çeviri Merkezi
   setAPIKeyWarning:
     please: Lütfen API Anahtarını
     page: sayfasında ayarlayın
-  betaExperience:
-    title: Beta Deneyimi
-    description: Deneysel özellikleri ve yeni işlevlere erken erişimi etkinleştirin. Bu özellikler kararsız veya eksik olabilir.
-    enabled: Beta Deneyimini Etkinleştir
   apiProviders:
     title: API Sağlayıcıları
     description: Çeviri ve kelime analizi işlevleri için API sağlayıcılarını buradan yapılandırın. 20'den fazla yerleşik sağlayıcımız var ve OpenAI uyumlu tüm API sağlayıcılarını destekliyoruz.
@@ -199,13 +174,8 @@ options:
     featureProviders:
       title: Özellik Sağlayıcıları
       description: Her özellik için kullanılacak sağlayıcıyı seçin
-      customActions: Özel AI Eylemleri
       features:
         translate: Sayfa Çevirisi
-        selectionToolbar_translate: Seçim Araç Çubuğu Çevirisi
-        tts: Metin Okuma
-        inputTranslation: Giriş Çevirisi
-        videoSubtitles: Video Altyazıları
     translationConfig:
       model:
         title: Model
@@ -243,178 +213,6 @@ options:
     patterns:
       enterUrlPattern: URL deseni girin (örn. example.com)
       urlPattern: URL Deseni
-  overlayTools:
-    title: Kaplama Araçları
-    floatingButton:
-      title: Yüzen Buton
-    selectionToolbar:
-      title: Seçim Araç Çubuğu
-    contextMenu:
-      title: Bağlam Menüsü
-    inputTranslation:
-      title: Giriş Çevirisi
-  inputTranslation:
-    provider:
-      title: Çeviri Sağlayıcısı
-      description: Giriş çevirisi için kullanılacak çeviri sağlayıcısını seçin
-      label: Sağlayıcı
-    toggle:
-      title: Üçlü Boşluk Çevirisini Etkinleştir
-      description: Herhangi bir giriş alanında boşluk tuşuna hızlıca 3 kez basarak içeriği çevirin
-    languages:
-      title: Çeviri Dilleri
-      description: Giriş çevirisi için kaynak ve hedef dilleri seçin
-      sourceCode: Sayfa Kaynak Dili
-      targetCode: Sayfa Hedef Dili
-      enableCycle: Her seferinde yönü değiştir
-    threshold:
-      title: Tetikleme Eşiği
-      description: Boşluk tuşuna basışlar arasındaki zaman aralığı
-      label: Eşik (ms)
-      hint: Ardışık boşluk tuşuna basışlar arasındaki milisaniye cinsinden süre (100-1000ms)
-      error: Değer $1 ile $2 arasında olmalıdır
-  floatingButtonAndToolbar:
-    title: Yüzen Buton ve Araç Çubuğu
-    floatingButtonDemoImageAlt: Yüzen Buton Demosu
-    selectionToolbarDemoImageAlt: Seçim Araç Çubuğu Demosu
-    floatingButton:
-      globalToggle:
-        title: Yüzen Butonu Etkinleştir
-        description: Vibe Reading özelliklerine hızlı erişim için web sayfalarında yüzen butonu görüntüle
-      closeMenu:
-        disableForSite: Bu site için devre dışı bırak
-        disableGlobally: Genel olarak devre dışı bırak
-      disabledSites:
-        title: Yüzen Buton Devre Dışı Siteler
-        description: Yüzen butonun devre dışı bırakılması gereken web sitelerini yapılandırın
-        enterUrlPattern: URL kalıbı girin
-        urlPattern: URL Kalıbı
-      clickAction:
-        title: Tıklama Eylemi
-        description: Yüzen butona tıklandığında gerçekleştirilecek eylemi seçin
-        panel: Yan Paneli Aç
-        translate: Sayfa Çevirisini Aç/Kapat
-      side:
-        title: Düğme tarafı
-        description: Yüzen düğmenin sayfanın hangi kenarına sabitleneceğini seçin
-        left: Sol
-        right: Sağ
-    selectionToolbar:
-      globalToggle:
-        title: Seçim Araç Çubuğunu Etkinleştir
-        description: Web sayfalarında metin seçtiğinizde araç çubuğunu göstererek hızlı çeviri, seslendirme ve AI eylemleri sunar
-      opacity:
-        title: Opaklık
-        description: Seçim araç çubuğunun ve buradan açılan genişletilmiş pencerenin opaklığını ayarlayın
-      featureToggles:
-        title: Özellik Açma/Kapama
-        description: Seçim araç çubuğunda hangi yerleşik özelliklerin gösterileceğini seçin
-        translate: Çeviri
-        speak: Sesli Okuma
-      closeMenu:
-        disableForSite: Bu site için devre dışı bırak
-        disableGlobally: Genel olarak devre dışı bırak
-      disabledSites:
-        title: Seçim Araç Çubuğu Devre Dışı Siteler
-        description: Seçim araç çubuğunun devre dışı bırakılması gereken web sitelerini yapılandırın
-        enterUrlPattern: URL kalıbı girin
-        urlPattern: URL Kalıbı
-      errors:
-        customActionFailed: Özel eylem başarısız oldu
-        customActionFailedFallback: Özel eylem isteği başarısız oldu
-        actionUnavailable: Seçilen eylem kullanılamıyor
-        missingSelection: Seçili metin yok
-        providerDisabled: Seçilen sağlayıcı devre dışı
-        providerUnavailable: Seçilen sağlayıcı kullanılamıyor
-      features:
-        provider: Sağlayıcı
-        selectProvider: Sağlayıcı seçin
-        noProviderAvailable: Kullanılabilir sağlayıcı yok
-        useProviderDefaultModel: Sağlayıcının varsayılan modelini kullan
-        useCustomModel: Özel model kullan
-        customModel: Özel model
-        model: Model
-        modelNotAvailableForNonLLM: Model ayarları yalnızca LLM sağlayıcılarında kullanılabilir
-        translate:
-          title: Seçim Çevirisi
-          description: Seçim araç çubuğu çeviri özelliği için sağlayıcı ve model yapılandırın
-      customActions:
-        title: Özel AI Eylemleri
-        description: Seçilen metin için kendi yapılandırılmış AI eylemlerinizi ekleyin
-        add: AI Eylemi Ekle
-        edit: AI Eylemini Düzenle
-        empty: Henüz özel AI eylemi yok
-        noEnabledLlmProvider: Özel AI eylemleri oluşturmadan önce en az bir LLM sağlayıcısını etkinleştirin
-        table:
-          name: Ad
-          provider: Sağlayıcı
-          fields: Alanlar
-          actions: İşlemler
-        form:
-          name: Ad
-          icon: Simge
-          iconField:
-            chooseAriaLabel: Simge seç
-            chooseTitle: Bir simge seçin
-            inputPlaceholder: Simge adını girin
-            helpAriaLabel: Daha fazla simge yardımı
-            helpTitle: Aradığınız simgeyi bulamadınız mı?
-            helpStepBrowsePrefix: ""
-            helpStepBrowseSuffix: üzerinde simgelere göz atın
-            helpStepCopyPrefix: "Örneğin "
-            helpStepCopySuffix: " simge adını kopyalayıp alana yapıştırın."
-          provider: Sağlayıcı (yapılandırılmış çıktı desteği gerekir)
-          selectProvider: Sağlayıcı seçin
-          systemPrompt: Sistem Promptu
-          prompt: Prompt
-          outputSchema: Çıkış Şeması
-          addField: Alan Ekle
-          fieldName: Alan Adı
-          fieldType: Alan Türü
-          fieldDescription: Açıklama
-          fieldDescriptionPlaceholder: Bu alanın ne içermesi gerektiğini açıklayın...
-          fieldSpeaking: Sesli okumayı etkinleştir
-          actions: İşlemler
-          cancel: İptal
-          save: Kaydet
-          defaultFieldName: sonuç
-          fieldNamePlaceholder: alan_adı
-          autoFieldPrefix: alan
-          addFieldDialog:
-            title: Çıktı Alanı Ekle
-          editFieldDialog:
-            title: Çıktı Alanını Düzenle
-            save: Kaydet
-          deleteFieldDialog:
-            title: Çıktı Alanı Silinsin mi?
-            description: Bu çıktı alanı kaldırılacaktır.
-            confirm: Sil
-            cancel: İptal
-          tokens:
-            selection: Seçilen metin içeriği
-            paragraphs: Seçimle kesişen paragraf metni; boş satırlarla birleştirilir ve özel AI eylemlerine gönderilirken ilk 2000 karaktere kısaltılır
-            targetLanguage: Kullanıcının hedef dili
-            webTitle: Web sayfası başlığı
-            webContent: Geçerli sayfadan çıkarılan ve ilk 2000 karaktere kısaltılan web sayfası içeriği
-          delete: Sil
-          deleteDialog:
-            title: Özel eylem silinsin mi?
-            description: Bu işlem geri alınamaz.
-            confirm: Sil
-            cancel: İptal
-        errors:
-          nameRequired: Ad gerekli
-          duplicateName: 'Yinelenen eylem adı "$1"'
-          invalidIcon: Geçersiz Iconify simge metni
-          providerRequired: Etkin bir LLM sağlayıcısı seçin
-          outputSchemaRequired: En az bir çıktı alanı ekleyin
-          fieldKeyRequired: Alan adı gerekli
-          duplicateFieldKey: Alan adları benzersiz olmalıdır
-    contextMenu:
-      title: Bağlam Menüsü
-      translate:
-        title: Bağlam Menüsü Çevirisini Etkinleştir
-        description: Sayfa veya seçili metni hızlıca çevirmek için tarayıcı sağ tıklama menüsüne çeviri seçenekleri ekle
   translation:
     title: Çeviri
     requestQueueConfig:
@@ -581,29 +379,6 @@ options:
       description: AI'ya web sayfası bağlamı sağlayarak çeviri kalitesini artırın
       enable: AI Akıllı Bağlam Çevirisini Etkinleştir
       enableDescription: AI, çeviri doğruluğunu artırmak için web sayfası özetini kullanır. LLM sağlayıcısı gerektirir. Bir sayfayı çevirmeye başlarken gecikme ekler ve API maliyetlerini artırır.
-  tts:
-    title: Metinden Konuşmaya
-    description: Konuş butonunu Edge TTS ses ayarlarıyla özelleştirin.
-    voice:
-      label: Ses
-      fallback: Yedek
-      selectPlaceholder: Bir ses seçin
-      preview: Önizleme
-      previewSample: Vibe Reading'dan merhaba! Yüksek sesle okurken böyle ses çıkaracağım.
-    languageVoice:
-      label: Dil Sesi
-      reset: Varsayılana Sıfırla
-      description: Bir dil seçin ve TTS bu dili algıladığında kullanılacak sesi atayın.
-    rate:
-      label: Hız (%)
-      hint: -100 ile 100 arasında tam sayı değerleri kabul eder
-    pitch:
-      label: Perde (Hz)
-      hint: -100 ile 100 arasında tam sayı değerleri kabul eder
-    volume:
-      label: Ses Düzeyi (%)
-      hint: -100 ile 100 arasında tam sayı değerleri kabul eder
-    betaDisabled: Metinden konuşmaya ayarlarını özelleştirmek için Beta Deneyimini etkinleştirin.
   statistics:
     title: İstatistikler
     batchRequest:
@@ -637,32 +412,6 @@ options:
       viewConfig:
         expand: Yapılandırmayı Genişlet
         collapse: Yapılandırmayı Daralt
-    backup:
-      title: Yapılandırma Yedekleme
-      description: Yapılandırma değiştirilirse otomatik yedeklemeler her saat oluşturulur. Önceki yapılandırmaları buradan geri yükleyebilirsiniz. (Maksimum $1 yedekleme)
-      loading: Yedeklemeler yükleniyor...
-      backupNow: Şimdi yedekle
-      backupSuccess: Yedekleme başarıyla oluşturuldu
-      restoreSuccess: Yapılandırma başarıyla geri yüklendi
-      empty:
-        title: Henüz yedekleme mevcut değil
-        description: Yapılandırma değiştirilirse yedeklemeler her saat otomatik olarak oluşturulur.
-      item:
-        extensionVersion: "Uzantı sürümü:"
-        schemaVersion: "Şema sürümü:"
-        restore: Geri Yükle
-        export: Dışa Aktar
-        delete: Sil
-      restore:
-        title: Yapılandırma yedeğini geri yükle?
-        description: Mevcut yapılandırmanız en son yedeklemeden farklıysa otomatik olarak yedeklenecektir. Yedekleme sayısı limiti aşarsa en eski yedekleme kaldırılabilir.
-        cancel: İptal
-        confirm: Geri Yükle
-      delete:
-        title: Yedekleme silinsin mi?
-        description: Bu yedeklemeyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
-        cancel: İptal
-        confirm: Sil
     resetConfig:
       title: Yapılandırmayı Sıfırla
       description: Tüm yapılandırmayı varsayılan değere sıfırla
@@ -672,80 +421,6 @@ options:
         confirm: Onayla
         cancel: İptal
         description: Bu işlem tüm özel yapılandırmalarınızı temizleyecek ve varsayılan değerlere sıfırlayacaktır. Lütfen onaylayın.
-  videoSubtitles:
-    title: Video Altyazıları
-    description: Şu anda yalnızca YouTube video altyazılarını desteklemektedir
-    provider:
-      title: Çeviri Sağlayıcısı
-      description: Video altyazı çevirisi için kullanılacak çeviri sağlayıcısını seçin
-      label: Sağlayıcı
-    enable: Video Altyazılarını Etkinleştir
-    enableDescription: Etkinleştirildiğinde, YouTube oynatıcı kontrollerinde bir çeviri düğmesi görünecektir. Altyazıları çevirmeye başlamak için tıklayın.
-    autoStart: Altyazıyı Otomatik Etkinleştir
-    autoStartDescription: Video yüklendiğinde altyazı çevirisini otomatik olarak etkinleştirir.
-    style:
-      title: Altyazı Stili
-      description: Altyazı görünümünü özelleştirin
-      preview: Önizleme
-      displayMode:
-        title: Görüntüleme Modu
-        bilingual: İki Dilli
-        originalOnly: Sadece Orijinal
-        translationOnly: Sadece Çeviri
-      translationPosition:
-        title: Çeviri Konumu
-        above: Üstte
-        below: Altta
-      generalSettings: Genel Ayarlar
-      mainSubtitle: Ana Altyazı
-      translationSubtitle: Çeviri Altyazısı
-      containerStyle: Arka Plan
-      fontFamily: Yazı Tipi
-      fontScale: Yazı Boyutu
-      color: Renk
-      fontWeight: Yazı Kalınlığı
-      backgroundOpacity: Arka Plan Şeffaflığı
-      reset: Varsayılana Sıfırla
-    aiSegmentation:
-      title: AI Akıllı Bölümlendirme
-      enable: AI Akıllı Bölümlendirmeyi Etkinleştir
-      enableDescription: Daha iyi okunabilirlik için altyazıları akıllıca bölümlemek üzere AI kullanın. Zaman çizelgesi AI tarafından belirlenir ve zaman zaman zamanlama kayması olabilir. LLM çeviri sağlayıcısı gerektirir.
-      clearCache: Önbelleği Temizle
-      clearing: Temizleniyor...
-      clearCacheDialog:
-        title: AI Bölümlendirme Önbelleğini Temizle
-        description: Tüm önbelleğe alınmış AI bölümlendirme sonuçları silinecektir. AI bölümlendirme etkinleştirilmiş bir video oynatıldığında altyazılar yeniden işlenecektir.
-        cancel: İptal
-        confirm: Onayla
-    requestQueueConfig:
-      title: Altyazı Çeviri Hızı
-      firstOnDescription: Altyazı çeviri isteklerinin işlem hızını ayarlamak için
-      lastOnDescription: algoritmasını kullanın
-      capacity:
-        title: Maksimum Patlama İstek Sayısı
-        description: Kısa sürede eşzamanlı olarak işlenebilecek maksimum altyazı çeviri isteği sayısı
-      rate:
-        title: Saniyede Ortalama İstek
-        description: Saniyede ortalama altyazı çeviri isteği sayısı. Geçici olarak fazla istek göndermek için maksimum patlama sayısı yapılandırılabilir
-    batchQueueConfig:
-      title: Altyazı Toplu Çeviri
-      description: Toplu çeviri için karakter limitleri ve maksimum paragraf sayısını yapılandırın (yalnızca LLM çevirisi için geçerlidir)
-      maxCharactersPerBatch:
-        title: Maksimum Karakter
-        description: Her çevirinin içerik hacmini kontrol etmek için toplu istek başına izin verilen maksimum karakter sayısı
-      maxItemsPerBatch:
-        title: Maksimum Paragraf Sayısı
-        description: Her çevirinin içerik hacmini kontrol etmek için her toplu çeviri için maksimum paragraf sayısı
-    customPrompts:
-      title: Özel Altyazı İstemleri
-      description: Altyazı çevirisi için istem şablonlarını özelleştirin (web sayfası çeviri istemlerinden ayrı)
-      editPrompt:
-        promptCellInput:
-          input: Çevrilecek altyazı metni
-          targetLanguage: Hedef dil
-          webTitle: Web sayfası başlığı
-          webDescription: Sayfa meta verilerinden web sayfası açıklaması
-          videoSummary: Video özeti (AI Akıllı Bağlam gerektirir)
 side:
   sourceLang: Kaynak Dil
   targetLang: Hedef Dil
@@ -779,86 +454,14 @@ languageDetection:
 translation:
   sameLanguage: Kaynak ve hedef diller farklı olmalıdır
   autoModeSameLanguage: Algılanan dil '$1' hedef dille aynı
-speak:
-  fetchingAudio: Ses oluşturuluyor...
-  playingAudio: Ses çalınıyor...
-  failedToGenerateSpeech: Konuşma oluşturulamadı
-  noTextSelected: Metin seçilmedi
-  openaiNotConfigured: OpenAI sağlayıcısı yapılandırılmadı veya etkinleştirilmedi
-  openaiApiKeyNotConfigured: OpenAI API anahtarı yapılandırılmadı
-action:
-  copy: Kopyala
-  copied: Kopyalandı
-  regenerate: Yeniden oluştur
-  viewContextDetails: Bağlam
-  openCustomActions: Custom AI Actions'ı aç
-  contextDetailsTitleLabel: Başlık
-  contextDetailsParagraphsLabel: Paragraflar
-  translation: Çeviri
-  speak: Oku
-  playing: Çalınıyor
-thinking:
-  label: Düşünüyor
-  complete: Düşünme tamamlandı
-  expand: Düşünmeyi genişlet
-  collapse: Düşünmeyi daralt
 shortcutKeySelector:
   placeholder: Lütfen kısayolu girin
-subtitles:
-  actions:
-    downloadTranslated: Çevrilmiş altyazıları indir
-    downloadTranslatedPreparing: Altyazılar hazırlanıyor, uzun videolar daha uzun sürebilir
-    downloadTranslatedTranslating: Altyazılar çevriliyor
-    downloadTranslatedComplete: Çevrilmiş altyazılar indirildi
-    downloadSource: Kaynak altyazıları indir
-  state:
-    loading: Vibe Reading altyazılar yükleniyor
-    error: Bir hata oluştu
-  errors:
-    http429: 429 YouTube altyazı API'sine çok fazla istek gönderildi. Lütfen biraz bekleyip tekrar deneyin.
-    http404: 404 YouTube altyazı bulunamadı.
-    http403: 403 YouTube altyazı erişimi reddedildi.
-    http500: 500 YouTube sunucu hatası oluştu.
-    httpUnknown: HTTP hatası $1
-    invalidResponse: YouTube altyazı yanıt biçimi geçersiz
-    networkError: YouTube altyazılar alınırken ağ hatası oluştu.
-    fetchSubTimeout: YouTube altyazılar alınırken zaman aşımı oluştu.
-    buttonNotFound: Altyazı butonu bulunamadı
-    noSubtitlesFound: Bu video için altyazı bulunmuyor
-    videoNotFound: Video öğesi bulunamadı
-    controlsBarNotFound: Kontrol çubuğu bulunamadı
-    aiRateLimited: Çok fazla istek, lütfen daha sonra tekrar deneyin
-    aiAuthFailed: API kimlik doğrulaması başarısız, lütfen API anahtarınızı kontrol edin
-    aiServiceUnavailable: Çeviri hizmeti geçici olarak kullanılamıyor
-    aiNoResponse: AI hizmeti yanıt vermedi, orijinal metin gösteriliyor
-    translatedExportFailed: Çevrilmiş altyazılar oluşturulamadı
-    translatedExportIncomplete: Tüm altyazı satırları çevrilemedi
-    translatedExportSameLanguage: Kaynak ve hedef diller aynı
 hotkey:
   control: Ctrl
   alt: Option
   shift: Shift
   backtick: Ters tırnak
   clickAndHold: Tıkla ve basılı tut
-translationHub:
-  searchLanguages: Dil ara...
-  noLanguagesFound: Dil bulunamadı
-  exchangeLanguages: Dilleri değiştir
-  title: Çoklu API Metin Çevirisi
-  noServicesSelected: Çeviri Hizmeti Seçilmedi
-  noServicesDescription: Çeviri kartlarını görmek için yukarıdan çeviri hizmetlerini seçin.
-  inputPlaceholder: Çevrilecek metni girin...
-  translate: Çevir
-  copiedToClipboard: Çeviri panoya kopyalandı!
-  copyTranslation: Çeviriyi kopyala
-  expandCard: Kartı genişlet
-  collapseCard: Kartı daralt
-  expandAllCards: Tümünü genişlet
-  collapseAllCards: Tümünü daralt
-  deleteCard: Kartı sil
-  translationFailed: Çeviri Başarısız
-  translationFailedFallback: Çeviri başarısız
-  retryTranslation: Çeviriyi yeniden dene
 languages:
   eng: İngilizce
   cmn: Basitleştirilmiş Çince

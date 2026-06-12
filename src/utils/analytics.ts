@@ -9,13 +9,11 @@ export function createFeatureUsageContext(
   feature: FeatureUsageContext["feature"],
   surface: AnalyticsSurface,
   startedAt = Date.now(),
-  metadata?: Pick<FeatureUsageContext, "action_id" | "action_name">,
 ): FeatureUsageContext {
   return {
     feature,
     surface,
     startedAt,
-    ...metadata,
   }
 }
 
@@ -32,16 +30,12 @@ export function buildFeatureUsedEventProperties({
   outcome,
   startedAt,
   finishedAt = Date.now(),
-  action_id,
-  action_name,
 }: FeatureUsedEventInput): FeatureUsedEventProperties {
   return {
     feature,
     surface,
     outcome,
     latency_ms: getLatencyMs(startedAt, finishedAt),
-    ...(action_id !== undefined ? { action_id } : {}),
-    ...(action_name !== undefined ? { action_name } : {}),
   }
 }
 

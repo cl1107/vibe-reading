@@ -4,14 +4,9 @@ extDescription: Vibe Reading — расширение браузера с отк
 dataTypes:
   string: Текст
   number: Число
-contextMenu:
-  translate: Перевести
-  translateSelection: Перевести "%s"
-  showOriginal: Показать оригинал
-sidePanel:
-  firefoxUserActionHint: В Firefox откройте Vibe Reading из боковой панели браузера.
-  firefoxUserActionHelpText: Как открыть боковую панель Firefox
-  firefoxUserActionHelpUrl: https://support.mozilla.org/ru/kb/ispolzovanije-bokovoi-paneli-dostup-instrumenty-i-vertikalnyje-vkladki
+languageCombobox:
+  searchLanguages: Search languages...
+  noLanguagesFound: No languages found
 popup:
   theme: Тема
   autoLang: Авто
@@ -19,8 +14,6 @@ popup:
   targetLang: Целевой
   translate: Перевести
   showOriginal: Показать оригинал
-  enabledFloatingButton: Включить плавающую кнопку
-  enabledSelectionToolbar: Включить панель выделения
   alwaysTranslate: Всегда переводить этот сайт
   addToWhitelist: Включить расширение на этом сайте
   addToBlacklist: Отключить расширение на этом сайте
@@ -35,23 +28,12 @@ popup:
       translationOnly:
         current: "Текущий режим: только перевод"
         action: Нажмите, чтобы переключиться на двуязычный
-  hub:
-    tooltip: Переводите текст несколькими моделями одновременно
   discord:
     tooltip: Присоединяйтесь к Discord, чтобы связаться с разработчиками и получить ранний доступ к новым функциям
   blog:
     notification: Что нового в Vibe Reading
   aiSmartContext: Умный контекст ИИ
   aiSmartContextDescription: Использует контекст веб-страницы для улучшения качества перевода. Требуется LLM-провайдер перевода.
-  more:
-    title: Ещё
-    translationHub: Центр переводов
-    joinDiscord: Присоединиться к Discord
-    joinWechat: Присоединиться к группе WeChat
-    starGithub: Поставить звезду на Github
-    rateUs: Оценить нас
-    ebook: Сторонняя читалка электронных книг
-    tutorial: Руководство
 errorRecovery:
   title: Что-то пошло не так
   description: Активирован режим восстановления. Вы можете экспортировать текущие настройки как резервную копию, затем сбросить настройки и попробовать снова.
@@ -75,17 +57,10 @@ options:
     noResults: Настройки не найдены
   sidebar:
     settings: Настройки
-    tools: Инструменты
     product: Продукт
-  tools:
-    translationHub: Центр переводов
   setAPIKeyWarning:
     please: Пожалуйста, установите API-ключ на странице
     page: настроек
-  betaExperience:
-    title: Бета-функции
-    description: Включите экспериментальные функции и ранний доступ к новым возможностям. Эти функции могут быть нестабильными или неполными.
-    enabled: Включить бета-функции
   apiProviders:
     title: API-провайдеры
     description: Настройте API-провайдеров для функций перевода и анализа слов. У нас более 20 встроенных провайдеров и поддержка любых OpenAI-совместимых API.
@@ -199,13 +174,8 @@ options:
     featureProviders:
       title: Провайдеры функций
       description: Выберите провайдера для каждой функции
-      customActions: Пользовательские AI-действия
       features:
         translate: Перевод страницы
-        selectionToolbar_translate: Перевод выделения
-        tts: Озвучивание текста
-        inputTranslation: Перевод ввода
-        videoSubtitles: Субтитры видео
     translationConfig:
       model:
         title: Модель
@@ -243,178 +213,6 @@ options:
     patterns:
       enterUrlPattern: Введите шаблон URL (например, example.com)
       urlPattern: Шаблон URL
-  overlayTools:
-    title: Инструменты наложения
-    floatingButton:
-      title: Плавающая кнопка
-    selectionToolbar:
-      title: Панель выделения
-    contextMenu:
-      title: Контекстное меню
-    inputTranslation:
-      title: Перевод ввода
-  inputTranslation:
-    provider:
-      title: Поставщик перевода
-      description: Выберите поставщика перевода для перевода ввода
-      label: Поставщик
-    toggle:
-      title: Включить тройной пробел для перевода
-      description: Быстро нажмите пробел 3 раза в любом поле ввода для перевода его содержимого
-    languages:
-      title: Языки перевода
-      description: Выберите исходный и целевой языки для перевода ввода
-      sourceCode: Исходный язык страницы
-      targetCode: Целевой язык страницы
-      enableCycle: Менять направление каждый раз
-    threshold:
-      title: Порог срабатывания
-      description: Временной интервал между нажатиями пробела
-      label: Порог (мс)
-      hint: Время в миллисекундах между последовательными нажатиями пробела (100-1000мс)
-      error: Значение должно быть от $1 до $2
-  floatingButtonAndToolbar:
-    title: Плавающая кнопка и панель инструментов
-    floatingButtonDemoImageAlt: Демо плавающей кнопки
-    selectionToolbarDemoImageAlt: Демо панели выделения
-    floatingButton:
-      globalToggle:
-        title: Включить плавающую кнопку
-        description: Отображать плавающую кнопку на веб-страницах для быстрого доступа к функциям Vibe Reading
-      closeMenu:
-        disableForSite: Отключить для этого сайта
-        disableGlobally: Отключить глобально
-      disabledSites:
-        title: Сайты с отключённой плавающей кнопкой
-        description: Настройте веб-сайты, где плавающая кнопка должна быть отключена
-        enterUrlPattern: Введите URL-шаблон
-        urlPattern: URL-шаблон
-      clickAction:
-        title: Действие по клику
-        description: Выберите действие при нажатии на плавающую кнопку
-        panel: Открыть боковую панель
-        translate: Переключить перевод страницы
-      side:
-        title: Сторона кнопки
-        description: Выберите, с какой стороны страницы закреплять плавающую кнопку
-        left: Слева
-        right: Справа
-    selectionToolbar:
-      globalToggle:
-        title: Включить панель выделения
-        description: Показывать панель при выделении текста на веб-страницах для быстрого перевода, озвучивания и AI-действий
-      opacity:
-        title: Прозрачность
-        description: Настройте прозрачность панели выделения и раскрытого окна, которое открывается из неё
-      featureToggles:
-        title: Переключатели функций
-        description: Выберите, какие встроенные функции показывать в панели выделения
-        translate: Перевод
-        speak: Озвучивание
-      closeMenu:
-        disableForSite: Отключить для этого сайта
-        disableGlobally: Отключить глобально
-      disabledSites:
-        title: Сайты с отключённой панелью выделения
-        description: Настройте веб-сайты, где панель выделения должна быть отключена
-        enterUrlPattern: Введите URL-шаблон
-        urlPattern: URL-шаблон
-      errors:
-        customActionFailed: Не удалось выполнить пользовательское действие
-        customActionFailedFallback: Запрос пользовательского действия не удался
-        actionUnavailable: Выбранное действие недоступно
-        missingSelection: Нет выделенного текста
-        providerDisabled: Выбранный провайдер отключен
-        providerUnavailable: Выбранный провайдер недоступен
-      features:
-        provider: Провайдер
-        selectProvider: Выберите провайдера
-        noProviderAvailable: Нет доступных провайдеров
-        useProviderDefaultModel: Использовать модель провайдера по умолчанию
-        useCustomModel: Использовать пользовательскую модель
-        customModel: Пользовательская модель
-        model: Модель
-        modelNotAvailableForNonLLM: Настройки модели доступны только для LLM-провайдеров
-        translate:
-          title: Перевод выделения
-          description: Настройка провайдера и модели для перевода в панели выделения
-      customActions:
-        title: Пользовательские AI-действия
-        description: Добавляйте собственные структурированные AI-действия для выделенного текста
-        add: Добавить AI-действие
-        edit: Редактировать AI-действие
-        empty: Пока нет пользовательских AI-действий
-        noEnabledLlmProvider: Включите хотя бы одного LLM-провайдера перед созданием пользовательских AI-действий
-        table:
-          name: Название
-          provider: Провайдер
-          fields: Поля
-          actions: Действия
-        form:
-          name: Название
-          icon: Иконка
-          iconField:
-            chooseAriaLabel: Выбрать иконку
-            chooseTitle: Выберите иконку
-            inputPlaceholder: Введите имя иконки
-            helpAriaLabel: Справка по иконкам
-            helpTitle: Не нашли нужную иконку?
-            helpStepBrowsePrefix: Посмотреть иконки на
-            helpStepBrowseSuffix: ""
-            helpStepCopyPrefix: "Скопируйте имя иконки, например "
-            helpStepCopySuffix: ", и вставьте его в поле."
-          provider: Провайдер (требуется поддержка структурированного вывода)
-          selectProvider: Выберите провайдера
-          systemPrompt: Системный промпт
-          prompt: Промпт
-          outputSchema: Схема вывода
-          addField: Добавить поле
-          fieldName: Имя поля
-          fieldType: Тип поля
-          fieldDescription: Описание
-          fieldDescriptionPlaceholder: Опишите, что должно содержать это поле...
-          fieldSpeaking: Включить озвучивание
-          actions: Действия
-          cancel: Отмена
-          save: Сохранить
-          defaultFieldName: результат
-          fieldNamePlaceholder: имя_поля
-          autoFieldPrefix: поле
-          addFieldDialog:
-            title: Добавить поле вывода
-          editFieldDialog:
-            title: Редактировать поле вывода
-            save: Сохранить
-          deleteFieldDialog:
-            title: Удалить поле вывода?
-            description: Это поле вывода будет удалено.
-            confirm: Удалить
-            cancel: Отмена
-          tokens:
-            selection: Содержимое выделенного текста
-            paragraphs: Текст абзацев, пересекающихся с выделением, объединённый пустыми строками; при отправке в пользовательские AI-действия обрезается до первых 2000 символов
-            targetLanguage: Целевой язык пользователя
-            webTitle: Заголовок веб-страницы
-            webContent: Содержимое веб-страницы, извлечённое с текущей страницы и сокращённое до первых 2000 символов
-          delete: Удалить
-          deleteDialog:
-            title: Удалить пользовательское действие?
-            description: Это действие нельзя отменить.
-            confirm: Удалить
-            cancel: Отмена
-        errors:
-          nameRequired: Название обязательно
-          duplicateName: 'Дублирующееся имя действия "$1"'
-          invalidIcon: Неверная строка иконки Iconify
-          providerRequired: Выберите включённого LLM-провайдера
-          outputSchemaRequired: Добавьте хотя бы одно поле вывода
-          fieldKeyRequired: Имя поля обязательно
-          duplicateFieldKey: Имена полей должны быть уникальными
-    contextMenu:
-      title: Контекстное меню
-      translate:
-        title: Включить перевод в контекстном меню
-        description: Добавить опцию перевода в контекстное меню браузера для быстрого перевода страницы и выделенного текста
   translation:
     title: Перевод
     requestQueueConfig:
@@ -581,29 +379,6 @@ options:
       description: Улучшайте качество перевода, предоставляя ИИ контекст веб-страницы
       enable: Включить умный контекстный перевод ИИ
       enableDescription: ИИ использует резюме веб-страницы для повышения точности перевода. Требуется LLM-провайдер. Добавляет задержку при начале перевода страницы и увеличивает затраты на API.
-  tts:
-    title: Синтез речи
-    description: Настройте кнопку озвучивания с параметрами голоса Edge TTS.
-    voice:
-      label: Голос
-      fallback: Резервный
-      selectPlaceholder: Выберите голос
-      preview: Предпросмотр
-      previewSample: Привет от Vibe Reading! Так я буду звучать при чтении вслух.
-    languageVoice:
-      label: Голос для языка
-      reset: Сбросить на значение по умолчанию
-      description: Выберите язык и назначьте голос, который будет использоваться, когда TTS определит этот язык.
-    rate:
-      label: Скорость (%)
-      hint: Допустимы целые значения от -100 до 100
-    pitch:
-      label: Высота (Hz)
-      hint: Допустимы целые значения от -100 до 100
-    volume:
-      label: Громкость (%)
-      hint: Допустимы целые значения от -100 до 100
-    betaDisabled: Включите бета-функции для настройки синтеза речи.
   statistics:
     title: Статистика
     batchRequest:
@@ -637,32 +412,6 @@ options:
       viewConfig:
         expand: Развернуть конфигурацию
         collapse: Свернуть конфигурацию
-    backup:
-      title: Резервное копирование конфигурации
-      description: Автоматические резервные копии создаются каждый час при изменении конфигурации. Вы можете восстановить предыдущие конфигурации здесь. (Максимум $1 резервных копий)
-      loading: Загрузка резервных копий...
-      backupNow: Создать резервную копию сейчас
-      backupSuccess: Резервная копия успешно создана
-      restoreSuccess: Конфигурация успешно восстановлена
-      empty:
-        title: Резервные копии пока недоступны
-        description: Резервные копии создаются автоматически каждый час при изменении конфигурации.
-      item:
-        extensionVersion: "Версия расширения:"
-        schemaVersion: "Версия схемы:"
-        restore: Восстановить
-        export: Экспорт
-        delete: Удалить
-      restore:
-        title: Восстановить резервную копию конфигурации?
-        description: Ваша текущая конфигурация будет автоматически сохранена, если она отличается от последней резервной копии. Самая старая резервная копия может быть удалена, если количество резервных копий превысит лимит.
-        cancel: Отмена
-        confirm: Восстановить
-      delete:
-        title: Удалить резервную копию?
-        description: Вы уверены, что хотите удалить эту резервную копию? Это действие нельзя отменить.
-        cancel: Отмена
-        confirm: Удалить
     resetConfig:
       title: Сбросить конфигурацию
       description: Сбросить все настройки до значений по умолчанию
@@ -672,80 +421,6 @@ options:
         confirm: Подтвердить
         cancel: Отмена
         description: Эта операция очистит все ваши пользовательские конфигурации и сбросит их до значений по умолчанию. Пожалуйста, подтвердите.
-  videoSubtitles:
-    title: Видео субтитры
-    description: В настоящее время поддерживаются только субтитры YouTube
-    provider:
-      title: Провайдер перевода
-      description: Выберите провайдера перевода для перевода видеосубтитров
-      label: Провайдер
-    enable: Включить видео субтитры
-    enableDescription: При включении в панели управления YouTube появится кнопка перевода. Нажмите её, чтобы начать перевод субтитров.
-    autoStart: Автовключение субтитров
-    autoStartDescription: Автоматически включать перевод субтитров после загрузки видео.
-    style:
-      title: Стиль субтитров
-      description: Настройка внешнего вида субтитров
-      preview: Предпросмотр
-      displayMode:
-        title: Режим отображения
-        bilingual: Двуязычный
-        originalOnly: Только оригинал
-        translationOnly: Только перевод
-      translationPosition:
-        title: Позиция перевода
-        above: Сверху
-        below: Снизу
-      generalSettings: Общие настройки
-      mainSubtitle: Основные субтитры
-      translationSubtitle: Перевод субтитров
-      containerStyle: Фон
-      fontFamily: Шрифт
-      fontScale: Размер шрифта
-      color: Цвет
-      fontWeight: Толщина шрифта
-      backgroundOpacity: Прозрачность фона
-      reset: Сбросить по умолчанию
-    aiSegmentation:
-      title: AI Умная сегментация
-      enable: Включить AI умную сегментацию
-      enableDescription: Использовать AI для интеллектуальной сегментации субтитров для лучшей читаемости. Временная шкала определяется AI, что может иногда вызывать смещение тайминга. Требуется LLM провайдер перевода.
-      clearCache: Очистить кэш
-      clearing: Очистка...
-      clearCacheDialog:
-        title: Очистить кэш AI сегментации
-        description: Все кэшированные результаты AI сегментации будут удалены. При следующем воспроизведении видео с включенной AI сегментацией субтитры будут обработаны заново.
-        cancel: Отмена
-        confirm: Подтвердить
-    requestQueueConfig:
-      title: Скорость перевода субтитров
-      firstOnDescription: Регулировка скорости обработки запросов перевода субтитров с помощью алгоритма
-      lastOnDescription: ""
-      capacity:
-        title: Макс. пакетных запросов
-        description: Максимальное количество запросов перевода субтитров, которые могут обрабатываться одновременно за короткий период
-      rate:
-        title: Среднее кол-во запросов/сек
-        description: Среднее количество запросов перевода субтитров в секунду с возможностью настройки максимального пакета для временной отправки избыточных запросов
-    batchQueueConfig:
-      title: Пакетный перевод субтитров
-      description: Настройте лимиты символов и максимальное количество абзацев для пакетного перевода (действует только для LLM-перевода)
-      maxCharactersPerBatch:
-        title: Максимум символов
-        description: Максимальное количество символов, разрешённое на один пакетный запрос, для контроля объёма содержимого каждого перевода
-      maxItemsPerBatch:
-        title: Максимум абзацев
-        description: Максимальное количество абзацев для каждого пакетного перевода для контроля объёма содержимого каждого перевода
-    customPrompts:
-      title: Пользовательские промпты субтитров
-      description: Настройте шаблоны промптов для перевода субтитров (отдельно от промптов перевода веб-страниц)
-      editPrompt:
-        promptCellInput:
-          input: Текст субтитров для перевода
-          targetLanguage: Целевой язык
-          webTitle: Заголовок веб-страницы
-          webDescription: Описание веб-страницы из метаданных
-          videoSummary: Краткое содержание видео (требуется умный контекст ИИ)
 side:
   sourceLang: Исходный язык
   targetLang: Целевой язык
@@ -779,86 +454,14 @@ languageDetection:
 translation:
   sameLanguage: Исходный и целевой языки должны различаться
   autoModeSameLanguage: Обнаруженный язык '$1' совпадает с целевым языком
-speak:
-  fetchingAudio: Генерация аудио...
-  playingAudio: Воспроизведение аудио...
-  failedToGenerateSpeech: Не удалось сгенерировать речь
-  noTextSelected: Текст не выделен
-  openaiNotConfigured: Провайдер OpenAI не настроен или не включён
-  openaiApiKeyNotConfigured: API-ключ OpenAI не настроен
-action:
-  copy: Копировать
-  copied: Скопировано
-  regenerate: Сгенерировать заново
-  viewContextDetails: Контекст
-  openCustomActions: Открыть Custom AI Actions
-  contextDetailsTitleLabel: Заголовок
-  contextDetailsParagraphsLabel: Абзацы
-  translation: Перевод
-  speak: Озвучить
-  playing: Воспроизведение
-thinking:
-  label: Размышление
-  complete: Размышление завершено
-  expand: Развернуть размышление
-  collapse: Свернуть размышление
 shortcutKeySelector:
   placeholder: Пожалуйста, введите горячую клавишу
-subtitles:
-  actions:
-    downloadTranslated: Скачать переведённые субтитры
-    downloadTranslatedPreparing: Подготовка субтитров, длинные видео могут занять больше времени
-    downloadTranslatedTranslating: Перевод субтитров
-    downloadTranslatedComplete: Переведённые субтитры скачаны
-    downloadSource: Скачать исходные субтитры
-  state:
-    loading: Vibe Reading загрузка субтитров
-    error: Произошла ошибка
-  errors:
-    http429: 429 Слишком много запросов к API YouTube субтитров, пожалуйста, попробуйте снова позже
-    http404: 404 Субтитры YouTube не найдены
-    http403: 403 Доступ к субтитрам YouTube запрещён
-    http500: 500 Произошла ошибка сервера YouTube
-    httpUnknown: Ошибка HTTP $1
-    invalidResponse: Неверный формат ответа субтитров YouTube
-    networkError: Произошла сетевая ошибка при получении субтитров
-    fetchSubTimeout: Получение субтитров YouTube завершилось с ошибкой
-    buttonNotFound: Кнопка субтитров не найдена
-    noSubtitlesFound: Для этого видео нет субтитров
-    videoNotFound: Видео элемент не найден
-    controlsBarNotFound: Панель управления не найдена
-    aiRateLimited: Слишком много запросов, пожалуйста, повторите позже
-    aiAuthFailed: Ошибка аутентификации API, проверьте ваш API ключ
-    aiServiceUnavailable: Служба перевода временно недоступна
-    aiNoResponse: Служба AI не ответила, отображается оригинальный текст
-    translatedExportFailed: Не удалось создать переведённые субтитры
-    translatedExportIncomplete: Не удалось перевести все строки субтитров
-    translatedExportSameLanguage: Исходный и целевой языки совпадают
 hotkey:
   control: Ctrl
   alt: Option
   shift: Shift
   backtick: Обратный апостроф
   clickAndHold: Нажмите и удерживайте
-translationHub:
-  searchLanguages: Поиск языков...
-  noLanguagesFound: Языки не найдены
-  exchangeLanguages: Поменять языки местами
-  title: Мульти-API перевод текста
-  noServicesSelected: Сервисы перевода не выбраны
-  noServicesDescription: Выберите сервисы перевода выше, чтобы увидеть карточки перевода.
-  inputPlaceholder: Введите текст для перевода...
-  translate: Перевести
-  copiedToClipboard: Перевод скопирован в буфер обмена!
-  copyTranslation: Копировать перевод
-  expandCard: Развернуть карточку
-  collapseCard: Свернуть карточку
-  expandAllCards: Развернуть все
-  collapseAllCards: Свернуть все
-  deleteCard: Удалить карточку
-  translationFailed: Ошибка перевода
-  translationFailedFallback: Ошибка перевода
-  retryTranslation: Повторить перевод
 languages:
   eng: Английский
   cmn: Упрощённый китайский

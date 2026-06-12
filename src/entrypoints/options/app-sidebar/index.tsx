@@ -18,7 +18,6 @@ import { getCommandPaletteShortcutHint } from "@/utils/os"
 import { version } from "../../../../package.json"
 import { commandPaletteOpenAtom } from "../command-palette/atoms"
 import { SettingsNav } from "./settings-nav"
-import { ToolsNav } from "./tools-nav"
 
 export function AppSidebar() {
   const setCommandPaletteOpen = useSetAtom(commandPaletteOpenAtom)
@@ -56,7 +55,6 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent className="group-data-[state=expanded]:px-2 transition-all">
         <SettingsNav />
-        <ToolsNav />
       </SidebarContent>
       <SidebarFooter className="group-data-[state=expanded]:px-2 transition-all" />
     </Sidebar>

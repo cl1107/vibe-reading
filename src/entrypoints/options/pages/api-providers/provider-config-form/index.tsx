@@ -23,7 +23,6 @@ import { providerConfigAtom } from "@/utils/atoms/provider"
 import {
   computeLanguageDetectionFallbackAfterDeletion,
   computeProviderFallbacksAfterDeletion,
-  computeSelectionToolbarCustomActionFallbacksAfterDeletion,
   findFeatureMissingProvider,
 } from "@/utils/config/helpers"
 import { buildFeatureProviderPatch } from "@/utils/constants/feature-providers"
@@ -95,30 +94,8 @@ export function ProviderConfigForm() {
       return
     }
 
-    const updatedCustomActions = computeSelectionToolbarCustomActionFallbacksAfterDeletion(
-      providerConfig.id,
-      config,
-      updatedAllProviders,
-    )
-    const hasAffectedCustomActions = config.selectionToolbar.customActions
-      .some(action => action.providerId === providerConfig.id)
-
-    if (hasAffectedCustomActions && !updatedCustomActions) {
-      toast.error(i18n.t("options.apiProviders.form.atLeastOneLLMProvider"))
-      return
-    }
-
     const fallbacks = computeProviderFallbacksAfterDeletion(providerConfig.id, config, updatedAllProviders)
     let patch = buildFeatureProviderPatch(fallbacks)
-    if (updatedCustomActions) {
-      patch = {
-        ...patch,
-        selectionToolbar: {
-          ...(patch.selectionToolbar ?? {}),
-          customActions: updatedCustomActions,
-        },
-      } as Partial<Config>
-    }
 
     const ldFallback = computeLanguageDetectionFallbackAfterDeletion(providerConfig.id, config, updatedAllProviders)
     if (ldFallback !== null) {
