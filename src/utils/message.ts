@@ -12,18 +12,13 @@ import { defineExtensionMessaging } from "@webext-core/messaging"
 
 interface ProtocolMap {
   // navigation
-  openPage: (data: { url: string, active?: boolean }) => void
   openOptionsPage: (data?: { route?: `/${string}` }) => void
-  // config
-  getInitialConfig: () => Config | null
   // translation state
   getEnablePageTranslationByTabId: (data: { tabId: number }) => boolean | undefined
   getEnablePageTranslationFromContentScript: () => Promise<boolean>
   tryToSetEnablePageTranslationByTabId: (data: { tabId: number, enabled: boolean, analyticsContext?: FeatureUsageContext }) => void
-  tryToSetEnablePageTranslationOnContentScript: (data: { enabled: boolean, analyticsContext?: FeatureUsageContext }) => void
   setAndNotifyPageTranslationStateChangedByManager: (data: { enabled: boolean, url?: string }) => void
   notifyTranslationStateChanged: (data: { enabled: boolean }) => void
-  ensureIframeHostContentInjected: (data: { tabId?: number }) => void
   injectCurrentIframesAfterTopFrameNodeTranslation: () => void
   reportDetectedPageLanguage: (data: { detectedCodeOrUnd: LangCodeISO6393 | "und", url: string }) => void
   refreshDetectedPageLanguage: () => void
@@ -31,10 +26,6 @@ interface ProtocolMap {
   detectedPageLanguageChanged: (data: { detectedCode: LangCodeISO6393 }) => void
   // ask host to start page translation
   askManagerToTogglePageTranslation: (data: { enabled: boolean, analyticsContext?: FeatureUsageContext }) => void
-  // user guide
-  pinStateChanged: (data: { isPinned: boolean }) => void
-  getPinState: () => boolean
-  returnPinState: (data: { isPinned: boolean }) => void
   // request
   enqueueTranslateRequest: (data: { text: string, langConfig: Config["language"], providerConfig: ProviderConfig, scheduleAt: number, hash: string, webTitle?: string | null, webDescription?: string | null, webContent?: string | null, webSummary?: string | null }) => Promise<string>
   getOrGenerateWebPageSummary: (data: { webTitle: string, webContent: string, providerConfig: ProviderConfig }) => Promise<string | null>

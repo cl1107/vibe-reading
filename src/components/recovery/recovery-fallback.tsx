@@ -1,5 +1,5 @@
 import { IconAlertCircle } from "@tabler/icons-react"
-import { useAtomValue, useSetAtom } from "jotai"
+import { useSetAtom } from "jotai"
 import { useState } from "react"
 import { toast } from "sonner"
 import { i18n } from "#imports"
@@ -15,9 +15,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/base-ui/alert-dialog"
 import { Button } from "@/components/ui/base-ui/button"
-import { useExportConfig } from "@/hooks/use-export-config"
-import { configAtom, writeConfigAtom } from "@/utils/atoms/config"
-import { CONFIG_SCHEMA_VERSION, DEFAULT_CONFIG } from "@/utils/constants/config"
+import { writeConfigAtom } from "@/utils/atoms/config"
+import { DEFAULT_CONFIG } from "@/utils/constants/config"
 import { Alert, AlertDescription, AlertTitle } from "../ui/base-ui/alert"
 
 interface RecoveryFallbackProps {
@@ -26,14 +25,8 @@ interface RecoveryFallbackProps {
 }
 
 export function RecoveryFallback({ error, onRecovered }: RecoveryFallbackProps) {
-  const config = useAtomValue(configAtom)
   const setConfig = useSetAtom(writeConfigAtom)
   const [isResetting, setIsResetting] = useState(false)
-
-  const { mutate: exportConfig, isPending: isExporting } = useExportConfig({
-    config,
-    schemaVersion: CONFIG_SCHEMA_VERSION,
-  })
 
   const handleResetConfig = async () => {
     setIsResetting(true)
@@ -67,32 +60,12 @@ export function RecoveryFallback({ error, onRecovered }: RecoveryFallbackProps) 
         )}
 
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-medium">{i18n.t("errorRecovery.backupTitle")}</p>
-          <div className="flex flex-wrap gap-2">
-            <Button
-              variant="outline"
-              onClick={() => exportConfig(true)}
-              disabled={isExporting || isResetting}
-            >
-              {i18n.t("errorRecovery.exportWithApiKeys")}
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => exportConfig(false)}
-              disabled={isExporting || isResetting}
-            >
-              {i18n.t("errorRecovery.exportWithoutApiKeys")}
-            </Button>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
           <p className="text-sm font-medium">{i18n.t("errorRecovery.recoveryTitle")}</p>
           <Button onClick={() => window.location.reload()}>
             {i18n.t("errorRecovery.refreshPage")}
           </Button>
           <AlertDialog>
-            <AlertDialogTrigger render={<Button variant="destructive" disabled={isExporting || isResetting} />}>
+            <AlertDialogTrigger render={<Button variant="destructive" disabled={isResetting} />}>
               {i18n.t("errorRecovery.resetAction")}
             </AlertDialogTrigger>
             <AlertDialogContent>

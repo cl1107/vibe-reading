@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: 현재 번역만 모드
         action: 클릭하여 이중 언어로 전환
-  discord:
-    tooltip: Discord에 참여하여 개발자와 소통하고 새 기능을 먼저 체험하세요
-  blog:
-    notification: Vibe Reading의 새로운 소식
   aiSmartContext: AI 스마트 컨텍스트
   aiSmartContextDescription: 웹페이지 컨텍스트를 사용하여 번역 품질을 향상시킵니다. LLM 번역 제공자가 필요합니다.
 errorRecovery:
   title: 문제가 발생했습니다
-  description: 복구 모드가 활성화되었습니다. 현재 설정을 백업으로 내보낸 뒤 설정을 초기화하고 다시 시도하세요.
-  backupTitle: 현재 설정 먼저 백업(권장)
-  exportWithApiKeys: API Key 포함 내보내기
-  exportWithoutApiKeys: API Key 제외 내보내기
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: 복구 옵션
   refreshPage: 페이지 새로고침
   resetAction: 기본 설정으로 초기화
@@ -55,7 +48,6 @@ options:
     noResults: 설정을 찾을 수 없습니다
   sidebar:
     settings: 설정
-    product: 제품
   setAPIKeyWarning:
     please: API Key를 설정해 주세요
     page: 페이지에서
@@ -349,26 +341,6 @@ options:
       title: 소개
       description: Vibe Reading는 2025년 4월에 태어났습니다
       mission: Vibe Reading는 언어 학습, 의학 등 지식 집약적 분야에서 AI 시대의 고품질 교육 기회에 더 평등하게 접근할 수 있도록, 실제 교사에 가까운 학습 경험을 더 낮은 비용으로 제공하는 것을 목표로 합니다.
-    sync:
-      title: 수동 설정 동기화
-      description: 수동으로 설정 가져오기 및 내보내기
-      import: 설정 가져오기
-      export: 설정 내보내기
-      importSuccess: 설정 가져오기 완료
-      exportSuccess: 설정 내보내기 완료
-      importError: 가져오기 실패
-      versionTooNew: 가져온 설정 버전이 최신이므로 Vibe Reading를 최신 버전으로 업그레이드해 주세요
-      migrationError: 마이그레이션 실패
-      validationError: 설정 검증 실패
-      exportOptions:
-        title: 내보내기 옵션 선택
-        description: 내보내는 설정에 API 키를 포함할지 선택하세요. API 키를 포함하면 민감한 정보가 유출될 수 있으므로 안전한 환경에서만 사용하는 것을 권장합니다.
-        includeAPIKeys: API 키 포함
-        excludeAPIKeys: API 키 제외
-        cancel: 취소
-      viewConfig:
-        expand: 설정 펼치기
-        collapse: 설정 접기
     resetConfig:
       title: 기본 설정 복원
       description: 모든 설정을 기본값으로 재설정
@@ -378,10 +350,6 @@ options:
         confirm: 확인
         cancel: 취소
         description: 이 작업은 모든 사용자 지정 설정을 지우고 기본값으로 재설정합니다. 삭제하시겠습니까?
-side:
-  sourceLang: 원본 언어
-  targetLang: 대상 언어
-  fileExport: 파일 내보내기
 translateService:
   title: 번역 서비스
   description: 웹페이지 번역 전용
@@ -393,11 +361,6 @@ translateService:
 translatePrompt:
   title: AI 번역 스타일
   description: 번역 시 사용할 프롬프트를 선택할 수 있습니다. 설정 페이지에서 사용자 정의 프롬프트를 추가하거나 수정할 수 있습니다
-languageLevel: 원본 언어 수준
-languageLevels:
-  beginner: 초급
-  intermediate: 중급
-  advanced: 고급
 noAPIKeyConfig:
   warning: AI 모델을 사용하려면 먼저 옵션 페이지에서 API 키를 설정해 주세요
   warningWithLink:

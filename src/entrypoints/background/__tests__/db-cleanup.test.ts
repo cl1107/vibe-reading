@@ -47,9 +47,6 @@ vi.mock("@/utils/db/dexie/db", () => ({
       where: summaryWhereMock,
       clear: vi.fn(),
     },
-    aiSegmentationCache: {
-      clear: vi.fn(),
-    },
   },
 }))
 

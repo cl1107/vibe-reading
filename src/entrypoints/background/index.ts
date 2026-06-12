@@ -24,12 +24,6 @@ export default defineBackground({
       }
     })
 
-    onMessage("openPage", async (message) => {
-      const { url, active } = message.data
-      logger.info("openPage", { url, active })
-      await browser.tabs.create({ url, active: active ?? true })
-    })
-
     onMessage("openOptionsPage", async (message) => {
       logger.info("openOptionsPage", message.data)
       await openOptionsPage(message.data)

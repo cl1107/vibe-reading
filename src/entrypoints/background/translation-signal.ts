@@ -81,16 +81,6 @@ export function translationMessage() {
     return false
   })
 
-  onMessage("ensureIframeHostContentInjected", async (msg) => {
-    const tabId = msg.data?.tabId ?? msg.sender?.tab?.id
-    if (typeof tabId === "number") {
-      await injectHostContentIntoTabIframes(tabId)
-      return
-    }
-
-    logger.error("Invalid tabId in ensureIframeHostContentInjected", msg)
-  })
-
   onMessage("injectCurrentIframesAfterTopFrameNodeTranslation", async (msg) => {
     const tabId = msg.sender?.tab?.id
     const frameId = msg.sender?.frameId
@@ -153,22 +143,6 @@ export function translationMessage() {
       notifyPageTranslationStateChanged(tabId, false)
     }
     requestManagerToTogglePageTranslation(tabId, enabled, analyticsContext)
-  })
-
-  onMessage("tryToSetEnablePageTranslationOnContentScript", async (msg) => {
-    const tabId = msg.sender?.tab?.id
-    const { enabled, analyticsContext } = msg.data
-    if (typeof tabId === "number") {
-      logger.info("sending tryToSetEnablePageTranslationOnContentScript to manager", { enabled, tabId })
-      if (!enabled) {
-        await setPageTranslationEnabled(tabId, false)
-        notifyPageTranslationStateChanged(tabId, false)
-      }
-      requestManagerToTogglePageTranslation(tabId, enabled, analyticsContext)
-    }
-    else {
-      logger.error("tabId is not a number", msg)
-    }
   })
 
   onMessage("setAndNotifyPageTranslationStateChangedByManager", async (msg) => {

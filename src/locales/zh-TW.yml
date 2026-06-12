@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: 當前為僅譯文
         action: 點擊切換為雙語對照
-  discord:
-    tooltip: 加入 Discord 與開發者討論，搶先體驗新功能
-  blog:
-    notification: 陪讀蛙更新動態
   aiSmartContext: AI 智慧上下文
   aiSmartContextDescription: 結合網頁上下文提升翻譯效果。需要設定 LLM 翻譯服務提供者。
 errorRecovery:
   title: 應用程式發生異常
-  description: 已進入復原模式。你可以先匯出目前設定作為備份，再重設設定後重試。
-  backupTitle: 先備份目前設定（推薦）
-  exportWithApiKeys: 匯出（包含 API 金鑰）
-  exportWithoutApiKeys: 匯出（不包含 API 金鑰）
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: 復原選項
   refreshPage: 重新整理頁面
   resetAction: 重設為預設設定
@@ -55,7 +48,6 @@ options:
     noResults: 找不到設定
   sidebar:
     settings: 設定
-    product: 產品
   setAPIKeyWarning:
     please: 請在
     page: 頁面設定 API 金鑰
@@ -349,26 +341,6 @@ options:
       title: 關於
       description: Vibe Reading 於 2025 年 4 月誕生
       mission: Vibe Reading 致力於在 AI 時代擴大高品質教育機會的平等可及性，透過更低成本地提供盡可能接近真人教師的學習體驗，涵蓋語言學習、醫學以及其他知識密集型領域。
-    sync:
-      title: 手動設定同步
-      description: 手動匯入和匯出你的設定
-      import: 匯入設定
-      export: 匯出設定
-      importSuccess: 設定匯入成功
-      exportSuccess: 設定匯出成功
-      importError: 匯入失敗
-      versionTooNew: 匯入的設定版本較新，請升級 Vibe Reading 到最新版本
-      migrationError: 遷移失敗
-      validationError: 設定驗證失敗
-      exportOptions:
-        title: 選擇匯出選項
-        description: 請選擇是否在匯出的設定中包含 API 金鑰。包含 API 金鑰 可能會洩露敏感資訊，建議僅在安全環境下使用。
-        includeAPIKeys: 包含 API 金鑰
-        excludeAPIKeys: 不包含 API 金鑰
-        cancel: 取消
-      viewConfig:
-        expand: 展開設定
-        collapse: 收起設定
     resetConfig:
       title: 重設設定
       description: 重設所有設定為預設值
@@ -378,10 +350,6 @@ options:
         confirm: 確認
         cancel: 取消
         description: 此操作將清空你的所有自訂設定，並將其重設為預設值，請確認是否清除。
-side:
-  sourceLang: 來源語言
-  targetLang: 目標語言
-  fileExport: 文件匯出
 translateService:
   title: 翻譯服務
   description: 僅用於翻譯網頁內容
@@ -393,11 +361,6 @@ translateService:
 translatePrompt:
   title: AI 翻譯風格
   description: 選擇在翻譯時使用的提示詞。可在選項頁面新增或修改自訂提示詞
-languageLevel: 你的來源語言水平
-languageLevels:
-  beginner: 初級
-  intermediate: 中級
-  advanced: 進階
 noAPIKeyConfig:
   warning: 如果想要使用 AI 模型，請先在選項頁面設定 API 金鑰
   warningWithLink:

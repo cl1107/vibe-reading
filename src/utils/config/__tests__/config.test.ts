@@ -1,22 +1,9 @@
 import { describe, expect, it } from "vitest"
 import { DEFAULT_PROVIDER_CONFIG, DEFAULT_PROVIDER_CONFIG_LIST } from "@/utils/constants/providers"
 import { getObjectWithoutAPIKeys, hasAPIKey } from "../api"
-import { LATEST_SCHEMA_VERSION } from "../migration"
 
 describe("config utilities", () => {
   describe("getObjectWithoutAPIKeys", () => {
-    for (let version = 2; version <= LATEST_SCHEMA_VERSION; version++) {
-      const currentVersionStr = String(version).padStart(3, "0")
-
-      it(`should remove api keys from config v${currentVersionStr}`, async () => {
-        const currentConfigModule = await import(`./example/v${currentVersionStr}.ts`)
-        const currentConfig = currentConfigModule.configExample
-
-        const result = getObjectWithoutAPIKeys(currentConfig)
-        expect(hasAPIKey(result)).toBe(false)
-      })
-    }
-
     it("should remove apiKey from OpenAI provider config", () => {
       const openaiConfigFromConstants = DEFAULT_PROVIDER_CONFIG_LIST.find(config => config.provider === "openai")!
       const openaiConfigWithApiKey = {

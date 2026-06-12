@@ -143,13 +143,6 @@ export const SEARCH_ITEMS: SearchItem[] = [
     pageKey: "options.translation.title",
   },
   {
-    sectionId: "manual-config-sync",
-    route: "/config",
-    titleKey: "options.config.sync.title",
-    descriptionKey: "options.config.sync.description",
-    pageKey: "options.config.title",
-  },
-  {
     sectionId: "reset-config",
     route: "/config",
     titleKey: "options.config.resetConfig.title",

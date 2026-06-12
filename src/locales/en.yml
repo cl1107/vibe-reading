@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: Currently translation only
         action: Click to switch to bilingual
-  discord:
-    tooltip: Join Discord to connect with developers and get early access to new features
-  blog:
-    notification: What's new in Vibe Reading
   aiSmartContext: AI Smart Context
   aiSmartContextDescription: Uses webpage context to improve translation quality. Requires LLM translation provider.
 errorRecovery:
   title: Something went wrong
-  description: Recovery mode is active. You can export your current settings as a backup, then reset settings and try again.
-  backupTitle: Backup current settings first (recommended)
-  exportWithApiKeys: Export with API Keys
-  exportWithoutApiKeys: Export without API Keys
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: Recovery options
   refreshPage: Refresh the page
   resetAction: Reset to default settings
@@ -55,7 +48,6 @@ options:
     noResults: No settings found
   sidebar:
     settings: Settings
-    product: Product
   setAPIKeyWarning:
     please: Please set API Key on
     page: page
@@ -350,26 +342,6 @@ options:
       title: About
       description: Vibe Reading was born in April 2025
       mission: Vibe Reading aims to expand equal access to high-quality education in the AI era by making learning experiences that feel closer to a real teacher affordable across language learning, medicine, and other knowledge-heavy fields.
-    sync:
-      title: Manual Config Sync
-      description: Manually import and export your configuration settings
-      import: Import Config
-      export: Export Config
-      importSuccess: Config imported successfully
-      exportSuccess: Config exported successfully
-      importError: Import failed
-      versionTooNew: The imported config version is newer, please upgrade Vibe Reading to the latest version
-      migrationError: Migration failed
-      validationError: Config validation failed
-      exportOptions:
-        title: Select Export Options
-        description: Please choose whether to include API Keys in the exported config. Including API Keys may leak sensitive information, so it's recommended to use only in secure environments.
-        includeAPIKeys: Include API Keys
-        excludeAPIKeys: Exclude API Keys
-        cancel: Cancel
-      viewConfig:
-        expand: Expand Config
-        collapse: Collapse Config
     resetConfig:
       title: Reset Config
       description: Reset all config to default value
@@ -379,10 +351,6 @@ options:
         confirm: Confirm
         cancel: Cancel
         description: This operation will clear all your custom configurations and reset them to default values. Please confirm.
-side:
-  sourceLang: Source Language
-  targetLang: Target Language
-  fileExport: File Export
 translateService:
   title: Translation Service
   description: For translate the webpage only
@@ -394,11 +362,6 @@ translateService:
 translatePrompt:
   title: AI Translation Style
   description: Select a Prompt to use during translation. Add or modify custom Prompts on the options page.
-languageLevel: Your Source Lang Level
-languageLevels:
-  beginner: Beginner
-  intermediate: Intermediate
-  advanced: Advanced
 noAPIKeyConfig:
   warning: If you want to use AI models, please set API key on the options page first
   warningWithLink:

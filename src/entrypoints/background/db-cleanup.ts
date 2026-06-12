@@ -104,14 +104,3 @@ export async function cleanupAllSummaryCache() {
     throw error
   }
 }
-
-export async function cleanupAllAiSegmentationCache() {
-  try {
-    await db.aiSegmentationCache.clear()
-    logger.info("AI segmentation cache cleanup: Deleted all entries")
-  }
-  catch (error) {
-    logger.error("Failed to cleanup all AI segmentation cache:", error)
-    throw error
-  }
-}

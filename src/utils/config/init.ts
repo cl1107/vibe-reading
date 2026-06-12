@@ -1,11 +1,11 @@
 import type { Config } from "@/types/config/config"
 import type { ConfigMeta } from "@/types/config/meta"
+import { dequal } from "dequal"
 import { storage } from "#imports"
 import { configSchema } from "@/types/config/config"
 import { isAPIProviderConfig } from "@/types/config/provider"
 import { CONFIG_SCHEMA_VERSION, CONFIG_STORAGE_KEY, DEFAULT_CONFIG } from "../constants/config"
 import { logger } from "../logger"
-import { runMigration } from "./migration"
 
 /**
  * Initialize the config, this function should only be called once in the background script
@@ -18,36 +18,24 @@ export async function initializeConfig() {
   ])
 
   let config: Config
-  let currentVersion: number
   let didConfigChange = false
 
   if (!storedConfig) {
     config = DEFAULT_CONFIG
-    currentVersion = CONFIG_SCHEMA_VERSION
     didConfigChange = true
   }
   else {
     config = storedConfig
-    currentVersion = configMeta?.schemaVersion ?? 1
   }
 
-  while (currentVersion < CONFIG_SCHEMA_VERSION) {
-    const nextVersion = currentVersion + 1
-    try {
-      config = await runMigration(nextVersion, config)
-      didConfigChange = true
-      currentVersion = nextVersion
-    }
-    catch (error) {
-      console.error(`Migration to version ${nextVersion} failed:`, error)
-      currentVersion = nextVersion
-    }
-  }
-
-  if (!configSchema.safeParse(config).success) {
+  const parseResult = configSchema.safeParse(config)
+  if (!parseResult.success) {
     logger.warn("Config is invalid, using default config")
     config = DEFAULT_CONFIG
-    currentVersion = CONFIG_SCHEMA_VERSION
+    didConfigChange = true
+  }
+  else if (!dequal(config, parseResult.data)) {
+    config = parseResult.data
     didConfigChange = true
   }
 
@@ -58,7 +46,7 @@ export async function initializeConfig() {
   }
 
   const didMetaNeedUpdate
-    = configMeta?.schemaVersion !== currentVersion
+    = configMeta?.schemaVersion !== CONFIG_SCHEMA_VERSION
       || configMeta?.lastModifiedAt === undefined
 
   if (didConfigChange) {
@@ -67,7 +55,7 @@ export async function initializeConfig() {
 
   if (didConfigChange || didMetaNeedUpdate) {
     await storage.setMeta<ConfigMeta>(`local:${CONFIG_STORAGE_KEY}`, {
-      schemaVersion: currentVersion,
+      schemaVersion: CONFIG_SCHEMA_VERSION,
       lastModifiedAt: configMeta?.lastModifiedAt ?? Date.now(),
     })
   }

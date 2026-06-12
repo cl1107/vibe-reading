@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: Modo solo traducción actual
         action: Haz clic para cambiar a bilingüe
-  discord:
-    tooltip: Únete a Discord para conectar con desarrolladores y obtener acceso anticipado a nuevas funciones
-  blog:
-    notification: Novedades de Vibe Reading
   aiSmartContext: Contexto inteligente de IA
   aiSmartContextDescription: Usa el contexto de la página web para mejorar la calidad de la traducción. Requiere un proveedor de traducción LLM.
 errorRecovery:
   title: Algo salió mal
-  description: El modo de recuperación está activo. Puedes exportar tu configuración actual como copia de seguridad y luego restablecer la configuración e intentarlo de nuevo.
-  backupTitle: Primero haz una copia de seguridad de la configuración actual (recomendado)
-  exportWithApiKeys: Exportar con claves API
-  exportWithoutApiKeys: Exportar sin claves API
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: Opciones de recuperación
   refreshPage: Actualizar la página
   resetAction: Restablecer configuración predeterminada
@@ -55,7 +48,6 @@ options:
     noResults: No se encontró configuración
   sidebar:
     settings: Configuración
-    product: Producto
   setAPIKeyWarning:
     please: Configura la clave API en
     page: página
@@ -350,26 +342,6 @@ options:
       title: Acerca de
       description: Vibe Reading nació en abril de 2025
       mission: Vibe Reading busca ampliar el acceso igualitario a educación de alta calidad en la era de la AI haciendo asequibles experiencias de aprendizaje que se sientan más cercanas a un profesor real, en el aprendizaje de idiomas, medicina y otros campos intensivos en conocimiento.
-    sync:
-      title: Sincronización manual de configuración
-      description: Importa y exporta manualmente tus ajustes de configuración
-      import: Importar configuración
-      export: Exportar configuración
-      importSuccess: Configuración importada correctamente
-      exportSuccess: Configuración exportada correctamente
-      importError: Error al importar
-      versionTooNew: La versión de configuración importada es más reciente; actualiza Vibe Reading a la última versión
-      migrationError: Error de migración
-      validationError: Error de validación de configuración
-      exportOptions:
-        title: Seleccionar opciones de exportación
-        description: Elige si incluir claves API en la configuración exportada. Incluir claves API puede filtrar información sensible, por lo que se recomienda usarlo solo en entornos seguros.
-        includeAPIKeys: Incluir claves API
-        excludeAPIKeys: Excluir claves API
-        cancel: Cancelar
-      viewConfig:
-        expand: Expandir configuración
-        collapse: Contraer configuración
     resetConfig:
       title: Restablecer configuración
       description: Restablecer toda la configuración al valor predeterminado
@@ -379,10 +351,6 @@ options:
         confirm: Confirmar
         cancel: Cancelar
         description: Esta operación borrará todas tus configuraciones personalizadas y las restablecerá a los valores predeterminados. Confirma para continuar.
-side:
-  sourceLang: Idioma de origen
-  targetLang: Idioma de destino
-  fileExport: Exportar archivo
 translateService:
   title: Servicio de traducción
   description: Solo para traducir la página web
@@ -394,11 +362,6 @@ translateService:
 translatePrompt:
   title: Estilo de traducción AI
   description: Selecciona un Prompt para usar durante la traducción. Añade o modifica Prompts personalizados en la página de opciones.
-languageLevel: Tu nivel del idioma de origen
-languageLevels:
-  beginner: Principiante
-  intermediate: Intermedio
-  advanced: Avanzado
 noAPIKeyConfig:
   warning: Si quieres usar modelos AI, primero configura la clave API en la página de opciones
   warningWithLink:

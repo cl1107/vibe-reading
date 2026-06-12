@@ -7,7 +7,6 @@ const getItemMock = vi.fn()
 const getMetaMock = vi.fn()
 const setItemMock = vi.fn()
 const setMetaMock = vi.fn()
-const runMigrationMock = vi.fn()
 const loggerWarnMock = vi.fn()
 
 vi.mock("#imports", () => ({
@@ -26,10 +25,6 @@ vi.mock("wxt/utils/storage", () => ({
     setItem: setItemMock,
     setMeta: setMetaMock,
   },
-}))
-
-vi.mock("../migration", () => ({
-  runMigration: runMigrationMock,
 }))
 
 vi.mock("@/utils/logger", () => ({
@@ -65,7 +60,6 @@ describe("initializeConfig", () => {
     vi.clearAllMocks()
     setItemMock.mockResolvedValue(undefined)
     setMetaMock.mockResolvedValue(undefined)
-    runMigrationMock.mockImplementation(async (_nextVersion: number, config: Config) => config)
   })
 
   it("does not write when config and meta are already up to date", async () => {
@@ -79,7 +73,6 @@ describe("initializeConfig", () => {
     const { initializeConfig } = await import("../init")
     await initializeConfig()
 
-    expect(runMigrationMock).not.toHaveBeenCalled()
     expect(setItemMock).not.toHaveBeenCalled()
     expect(setMetaMock).not.toHaveBeenCalled()
   })
@@ -100,29 +93,26 @@ describe("initializeConfig", () => {
     }))
   })
 
-  it("runs migration and persists migrated config once", async () => {
+  it("persists canonical config when stored config contains unsupported roots", async () => {
     const config = buildStableConfig()
-    const migrated = {
+    const staleConfig = {
       ...config,
-      language: {
-        ...config.language,
-        targetCode: "eng" as const,
-      },
-    }
+      tts: { defaultVoice: "en-US-GuyNeural" },
+      videoSubtitles: { enabled: true },
+      selectionToolbar: { enabled: true },
+    } as Config & Record<string, unknown>
 
-    getItemMock.mockResolvedValueOnce(config)
+    getItemMock.mockResolvedValueOnce(staleConfig)
     getMetaMock.mockResolvedValueOnce({
-      schemaVersion: CONFIG_SCHEMA_VERSION - 1,
+      schemaVersion: 79,
       lastModifiedAt: 888,
     })
-    runMigrationMock.mockResolvedValueOnce(migrated)
 
     const { initializeConfig } = await import("../init")
     await initializeConfig()
 
-    expect(runMigrationMock).toHaveBeenCalledWith(CONFIG_SCHEMA_VERSION, config)
     expect(setItemMock).toHaveBeenCalledTimes(1)
-    expect(setItemMock).toHaveBeenCalledWith("local:config", migrated)
+    expect(setItemMock).toHaveBeenCalledWith("local:config", config)
     expect(setMetaMock).toHaveBeenCalledTimes(1)
     expect(setMetaMock).toHaveBeenCalledWith("local:config", {
       schemaVersion: CONFIG_SCHEMA_VERSION,

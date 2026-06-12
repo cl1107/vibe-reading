@@ -162,34 +162,6 @@ describe("translationMessage", () => {
     }, 42)
   })
 
-  it("injects current iframes when explicitly asked for a tab", async () => {
-    await setupSubject()
-
-    await getHandler("ensureIframeHostContentInjected")({
-      data: { tabId: 42 },
-    })
-
-    expect(injectHostContentIntoTabIframesMock).toHaveBeenCalledWith(42)
-  })
-
-  it("does not inject current iframes without a valid tab id", async () => {
-    await setupSubject()
-
-    await getHandler("ensureIframeHostContentInjected")({
-      data: {},
-      sender: {},
-    })
-
-    expect(injectHostContentIntoTabIframesMock).not.toHaveBeenCalled()
-    expect(loggerErrorMock).toHaveBeenCalledWith(
-      "Invalid tabId in ensureIframeHostContentInjected",
-      expect.objectContaining({
-        data: {},
-        sender: {},
-      }),
-    )
-  })
-
   it("injects current iframes after successful top-frame node translation", async () => {
     await setupSubject()
 

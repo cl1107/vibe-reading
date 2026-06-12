@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: "Geçerli mod: Yalnızca çeviri"
         action: İki dilli moda geçmek için tıklayın
-  discord:
-    tooltip: Geliştiricilerle bağlantı kurmak ve yeni özelliklere erken erişim sağlamak için Discord'a katılın
-  blog:
-    notification: Vibe Reading'da yenilikler
   aiSmartContext: AI Akıllı Bağlam
   aiSmartContextDescription: Çeviri kalitesini artırmak için web sayfası bağlamını kullanır. LLM çeviri sağlayıcısı gerektirir.
 errorRecovery:
   title: Bir sorun oluştu
-  description: Kurtarma modu etkin. Geçerli ayarlarınızı yedek olarak dışa aktarabilir, ardından ayarları sıfırlayıp tekrar deneyebilirsiniz.
-  backupTitle: Önce geçerli ayarları yedekleyin (önerilir)
-  exportWithApiKeys: API Anahtarlarıyla Dışa Aktar
-  exportWithoutApiKeys: API Anahtarları olmadan Dışa Aktar
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: Kurtarma seçenekleri
   refreshPage: Sayfayı yenile
   resetAction: Varsayılan ayarlara sıfırla
@@ -55,7 +48,6 @@ options:
     noResults: Ayar bulunamadı
   sidebar:
     settings: Ayarlar
-    product: Ürün
   setAPIKeyWarning:
     please: Lütfen API Anahtarını
     page: sayfasında ayarlayın
@@ -349,26 +341,6 @@ options:
       title: Hakkında
       description: Vibe Reading Nisan 2025'te doğdu
       mission: Vibe Reading, yapay zeka çağında yüksek kaliteli eğitime daha eşit erişimi genişletmek için, dil öğrenimi, tıp ve bilgi yoğun diğer alanlarda gerçek bir öğretmene daha yakın hissettiren öğrenme deneyimlerini daha ulaşılabilir maliyetlerle sunmayı hedefler.
-    sync:
-      title: Manuel Yapılandırma Senkronizasyonu
-      description: Yapılandırma ayarlarınızı manuel olarak içe ve dışa aktarın
-      import: Yapılandırmayı İçe Aktar
-      export: Yapılandırmayı Dışa Aktar
-      importSuccess: Yapılandırma başarıyla içe aktarıldı
-      exportSuccess: Yapılandırma başarıyla dışa aktarıldı
-      importError: İçe aktarma başarısız
-      versionTooNew: İçe aktarılan yapılandırma sürümü daha yeni, lütfen Vibe Reading'u en son sürüme yükseltin
-      migrationError: Geçiş başarısız
-      validationError: Yapılandırma doğrulaması başarısız
-      exportOptions:
-        title: Dışa Aktarma Seçeneklerini Seçin
-        description: Lütfen dışa aktarılan yapılandırmaya API Anahtarlarını dahil edip etmemeyi seçin. API Anahtarlarını dahil etmek hassas bilgileri sızdırabilir, bu nedenle yalnızca güvenli ortamlarda kullanılması önerilir.
-        includeAPIKeys: API Anahtarlarını Dahil Et
-        excludeAPIKeys: API Anahtarlarını Hariç Tut
-        cancel: İptal
-      viewConfig:
-        expand: Yapılandırmayı Genişlet
-        collapse: Yapılandırmayı Daralt
     resetConfig:
       title: Yapılandırmayı Sıfırla
       description: Tüm yapılandırmayı varsayılan değere sıfırla
@@ -378,10 +350,6 @@ options:
         confirm: Onayla
         cancel: İptal
         description: Bu işlem tüm özel yapılandırmalarınızı temizleyecek ve varsayılan değerlere sıfırlayacaktır. Lütfen onaylayın.
-side:
-  sourceLang: Kaynak Dil
-  targetLang: Hedef Dil
-  fileExport: Dosya Dışa Aktarma
 translateService:
   title: Çeviri Servisi
   description: Yalnızca web sayfası çevirisi için
@@ -393,11 +361,6 @@ translateService:
 translatePrompt:
   title: AI Çeviri Stili
   description: Çeviri sırasında kullanılacak bir Prompt seçin. Seçenekler sayfasında özel Promptlar ekleyin veya değiştirin.
-languageLevel: Kaynak Dil Seviyeniz
-languageLevels:
-  beginner: Başlangıç
-  intermediate: Orta
-  advanced: İleri
 noAPIKeyConfig:
   warning: AI modelleri kullanmak istiyorsanız, lütfen önce seçenekler sayfasında API anahtarını ayarlayın
   warningWithLink:

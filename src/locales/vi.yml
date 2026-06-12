@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: Hiện tại chỉ bản dịch
         action: Nhấp để chuyển sang song ngữ
-  discord:
-    tooltip: Tham gia Discord để kết nối với các nhà phát triển và truy cập sớm các tính năng mới
-  blog:
-    notification: Có gì mới trong Vibe Reading
   aiSmartContext: Ngữ cảnh thông minh AI
   aiSmartContextDescription: Sử dụng ngữ cảnh trang web để cải thiện chất lượng dịch. Yêu cầu nhà cung cấp dịch LLM.
 errorRecovery:
   title: Đã xảy ra sự cố
-  description: Chế độ khôi phục đang hoạt động. Bạn có thể xuất cài đặt hiện tại để sao lưu, sau đó đặt lại cài đặt và thử lại.
-  backupTitle: Sao lưu cài đặt hiện tại trước (khuyến nghị)
-  exportWithApiKeys: Xuất kèm API Key
-  exportWithoutApiKeys: Xuất không kèm API Key
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: Tùy chọn khôi phục
   refreshPage: Tải lại trang
   resetAction: Đặt lại về cài đặt mặc định
@@ -55,7 +48,6 @@ options:
     noResults: Không tìm thấy cài đặt
   sidebar:
     settings: Cài đặt
-    product: Sản phẩm
   setAPIKeyWarning:
     please: Vui lòng đặt API Key trên trang
     page: cài đặt
@@ -349,26 +341,6 @@ options:
       title: Giới thiệu
       description: Vibe Reading ra đời vào tháng 4 năm 2025
       mission: Vibe Reading hướng tới việc mở rộng cơ hội tiếp cận bình đẳng với giáo dục chất lượng cao trong thời đại AI bằng cách mang lại trải nghiệm học tập gần với cảm giác được giáo viên thật hướng dẫn, nhưng với chi phí hợp lý hơn trong học ngôn ngữ, y học và các lĩnh vực giàu tri thức khác.
-    sync:
-      title: Đồng bộ cấu hình thủ công
-      description: Nhập và xuất cài đặt cấu hình thủ công
-      import: Nhập cấu hình
-      export: Xuất cấu hình
-      importSuccess: Nhập cấu hình thành công
-      exportSuccess: Xuất cấu hình thành công
-      importError: Nhập thất bại
-      versionTooNew: Phiên bản cấu hình đã nhập mới hơn, vui lòng nâng cấp Vibe Reading lên phiên bản mới nhất
-      migrationError: Di chuyển thất bại
-      validationError: Xác thực cấu hình thất bại
-      exportOptions:
-        title: Chọn tùy chọn xuất
-        description: Vui lòng chọn có bao gồm API Keys trong cấu hình xuất hay không. Bao gồm API Keys có thể làm rò rỉ thông tin nhạy cảm, vì vậy khuyến nghị chỉ sử dụng trong môi trường an toàn.
-        includeAPIKeys: Bao gồm API Keys
-        excludeAPIKeys: Loại trừ API Keys
-        cancel: Hủy
-      viewConfig:
-        expand: Mở rộng cấu hình
-        collapse: Thu gọn cấu hình
     resetConfig:
       title: Đặt lại cấu hình
       description: Đặt lại tất cả cấu hình về giá trị mặc định
@@ -378,10 +350,6 @@ options:
         confirm: Xác nhận
         cancel: Hủy
         description: Thao tác này sẽ xóa tất cả cấu hình tùy chỉnh của bạn và đặt lại về giá trị mặc định. Vui lòng xác nhận.
-side:
-  sourceLang: Ngôn ngữ nguồn
-  targetLang: Ngôn ngữ đích
-  fileExport: Xuất tệp
 translateService:
   title: Dịch vụ dịch thuật
   description: Chỉ để dịch trang web
@@ -393,11 +361,6 @@ translateService:
 translatePrompt:
   title: Kiểu dịch AI
   description: Chọn một Prompt để sử dụng trong quá trình dịch. Thêm hoặc sửa đổi Prompt tùy chỉnh trên trang tùy chọn.
-languageLevel: Trình độ ngôn ngữ nguồn của bạn
-languageLevels:
-  beginner: Người mới bắt đầu
-  intermediate: Trung cấp
-  advanced: Nâng cao
 noAPIKeyConfig:
   warning: Nếu bạn muốn sử dụng mô hình AI, vui lòng đặt API key trên trang tùy chọn trước
   warningWithLink:

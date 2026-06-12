@@ -64,7 +64,7 @@ function ProviderCardList() {
         reorderedApiProviders.push(provider)
     }
 
-    // Preserve any API providers that appeared while dragging (e.g. config sync)
+    // Preserve any API providers that appeared while dragging.
     for (const provider of currentApiProviders) {
       if (!desiredOrderIdSet.has(provider.id)) {
         reorderedApiProviders.push(provider)

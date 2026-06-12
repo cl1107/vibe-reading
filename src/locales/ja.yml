@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: 現在は翻訳のみ
         action: クリックしてバイリンガルへ切り替え
-  discord:
-    tooltip: Discordに参加して開発者とつながり、新機能を先行体験しましょう
-  blog:
-    notification: 読書カエルの最新情報
   aiSmartContext: AI スマートコンテキスト
   aiSmartContextDescription: ウェブページのコンテキストを使用して翻訳品質を向上させます。LLM翻訳プロバイダーが必要です。
 errorRecovery:
   title: 問題が発生しました
-  description: 復旧モードが有効です。現在の設定をバックアップとしてエクスポートし、設定をリセットして再試行してください。
-  backupTitle: まず現在の設定をバックアップ（推奨）
-  exportWithApiKeys: APIキーを含めてエクスポート
-  exportWithoutApiKeys: APIキーを除外してエクスポート
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: 復旧オプション
   refreshPage: ページを再読み込み
   resetAction: 設定をデフォルトにリセット
@@ -55,7 +48,6 @@ options:
     noResults: 設定が見つかりません
   sidebar:
     settings: 設定
-    product: 製品
   setAPIKeyWarning:
     please: 設定ページで
     page: APIキーを設定してください
@@ -349,26 +341,6 @@ options:
       title: Vibe Reading について
       description: Vibe Reading は 2025 年 4 月に生まれました
       mission: Vibe Reading は、AI 時代における質の高い教育機会への平等なアクセスを広げるため、語学学習、医学、その他の知識集約型分野で、実際の教師に近い学習体験を手頃な価格で提供することを目指しています。
-    sync:
-      title: 手動設定同期
-      description: 手動で設定をインポート・エクスポート
-      import: 設定をインポート
-      export: 設定をエクスポート
-      importSuccess: 設定のインポートが完了しました
-      exportSuccess: 設定のエクスポートが完了しました
-      importError: インポートに失敗しました
-      versionTooNew: インポートされた設定のバージョンが新しいため、Vibe Readingを最新バージョンにアップグレードしてください
-      migrationError: 移行に失敗しました
-      validationError: 設定の検証に失敗しました
-      exportOptions:
-        title: エクスポートオプションを選択
-        description: エクスポートする設定にAPIキーを含めるかどうかを選択してください。APIキーを含めると機密情報が漏洩する可能性があるため、安全な環境でのみ使用することをお勧めします。
-        includeAPIKeys: APIキーを含める
-        excludeAPIKeys: APIキーを含めない
-        cancel: キャンセル
-      viewConfig:
-        expand: 設定を展開
-        collapse: 設定を折りたたむ
     resetConfig:
       title: 設定をリセット
       description: すべての設定をデフォルト値にリセットします。
@@ -378,10 +350,6 @@ options:
         confirm: 確認
         cancel: キャンセル
         description: この操作は、すべての設定をデフォルト値にリセットします。ご確認ください。
-side:
-  sourceLang: ソース言語
-  targetLang: 翻訳言語
-  fileExport: ファイルエクスポート
 translateService:
   title: 翻訳サービス
   description: ウェブページの翻訳にのみ使用
@@ -393,11 +361,6 @@ translateService:
 translatePrompt:
   title: AI翻訳スタイル
   description: 翻訳時に使用するプロンプトを選択できます。オプションページでカスタムプロンプトを追加または変更できます
-languageLevel: ソース言語のレベル
-languageLevels:
-  beginner: 初級
-  intermediate: 中級
-  advanced: 上級
 noAPIKeyConfig:
   warning: AIモデルを使用するには、まずオプションページでAPIキーを設定してください
   warningWithLink:

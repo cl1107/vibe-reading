@@ -26,18 +26,11 @@ popup:
       translationOnly:
         current: 当前为仅译文
         action: 点击切换为双语对照
-  discord:
-    tooltip: 加入 Discord 与开发者交流，抢先体验新功能
-  blog:
-    notification: Vibe Reading更新动态
   aiSmartContext: AI 智能上下文
   aiSmartContextDescription: 结合网页上下文提升翻译效果。需要配置 LLM 翻译服务商。
 errorRecovery:
   title: 应用发生异常
-  description: 已进入恢复模式。你可以先导出当前设置作为备份，再重置设置后重试。
-  backupTitle: 先备份当前设置（推荐）
-  exportWithApiKeys: 导出（包含 API Keys）
-  exportWithoutApiKeys: 导出（不包含 API Keys）
+  description: Recovery mode is active. Refresh the page or reset settings and try again.
   recoveryTitle: 恢复选项
   refreshPage: 刷新页面
   resetAction: 重置为默认设置
@@ -55,7 +48,6 @@ options:
     noResults: 未找到设置
   sidebar:
     settings: 设置
-    product: 产品
   setAPIKeyWarning:
     please: 请在
     page: 页设置 API Key
@@ -350,26 +342,6 @@ options:
       title: 关于
       description: Vibe Reading 出生于 2025 年 4 月
       mission: Vibe Reading 致力于在 AI 时代扩大高质量教育机会的平等可及性，通过更低成本地提供尽可能接近真人教师的学习体验，覆盖语言学习、医学以及其他知识密集型领域。
-    sync:
-      title: 手动配置同步
-      description: 手动导入和导出您的配置设置
-      import: 导入配置
-      export: 导出配置
-      importSuccess: 配置导入成功
-      exportSuccess: 配置导出成功
-      importError: 导入失败
-      versionTooNew: 导入的配置版本较新，请升级 Vibe Reading 到最新版本
-      migrationError: 迁移失败
-      validationError: 配置验证失败
-      exportOptions:
-        title: 选择导出选项
-        description: 请选择是否在导出的配置中包含 API Keys。包含 API Keys 可能会泄露敏感信息，建议仅在安全环境下使用。
-        includeAPIKeys: 包含 API Keys
-        excludeAPIKeys: 不包含 API Keys
-        cancel: 取消
-      viewConfig:
-        expand: 展开配置
-        collapse: 收起配置
     resetConfig:
       title: 恢复默认配置
       description: 将所有配置重置为默认
@@ -379,10 +351,6 @@ options:
         confirm: 确认
         cancel: 取消
         description: 该操作将清空您的所有自定义配置，并将其重置为默认值，请确认是否清除。
-side:
-  sourceLang: 来源语言
-  targetLang: 目标语言
-  fileExport: 文件导出
 translateService:
   title: 翻译服务
   description: 仅用于翻译网页内容
@@ -394,11 +362,6 @@ translateService:
 translatePrompt:
   title: AI 翻译风格
   description: 选择在翻译时使用的 Prompt，可在选项页新增或修改自定义 Prompt
-languageLevel: 你的来源语言水平
-languageLevels:
-  beginner: 初级
-  intermediate: 中级
-  advanced: 高级
 noAPIKeyConfig:
   warning: 如果想要使用 AI 模型，请先在选项页设置 API Key
   warningWithLink:
