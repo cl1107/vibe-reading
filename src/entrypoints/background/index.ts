@@ -4,6 +4,7 @@ import { logger } from "@/utils/logger"
 import { onMessage } from "@/utils/message"
 import { openOptionsPage } from "@/utils/navigation"
 import { ensureInitializedConfig } from "./config"
+import { initializeContextMenu, registerContextMenuListeners } from "./context-menu"
 import { cleanupAllSummaryCache, cleanupAllTranslationCache, setUpDatabaseCleanup } from "./db-cleanup"
 import { setupIframeInjection } from "./iframe-injection"
 import { setupLLMGenerateTextMessageHandlers } from "./llm-generate-text"
@@ -35,6 +36,10 @@ export default defineBackground({
     })
 
     translationMessage()
+
+    // Register context menu (must be sync before Chrome finishes init)
+    registerContextMenuListeners()
+    void initializeContextMenu()
 
     void setUpWebPageTranslationQueue()
     void setUpDatabaseCleanup()

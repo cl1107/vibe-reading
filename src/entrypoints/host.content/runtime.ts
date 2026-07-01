@@ -1,13 +1,18 @@
 import type { ContentScriptContext } from "#imports"
 import type { Config } from "@/types/config/config"
+import { isLLMProviderConfig } from "@/types/config/provider"
+import { getProviderConfigById } from "@/utils/config/helpers"
+import { getLocalConfig } from "@/utils/config/storage"
 import { DEFAULT_CONFIG } from "@/utils/constants/config"
 import { detectPageLanguageLightweight } from "@/utils/content/page-language"
+import { translateTextCore } from "@/utils/host/translate/translate-text"
 import { ensurePresetStyles } from "@/utils/host/translate/ui/style-injector"
 import { logger } from "@/utils/logger"
 import { onMessage, sendMessage } from "@/utils/message"
 import { areSamePageTranslationOrigin } from "@/utils/url"
 import { setupUrlChangeListener } from "./listen"
 import { mountHostToast } from "./mount-host-toast"
+import { showTranslationTooltip } from "./selection-translation-tooltip"
 import { bindTranslationShortcutKey } from "./translation-control/bind-translation-shortcut"
 import { registerNodeTranslationTriggers } from "./translation-control/node-translation"
 import { PageTranslationManager } from "./translation-control/page-translation"
@@ -97,6 +102,42 @@ export async function bootstrapHostContent(ctx: ContentScriptContext, initialCon
       })
     : () => {}
 
+  // Handle selection translation from context menu (right-click)
+  const cleanupContextMenuTranslationListener = onMessage(
+    "translateSelectionFromContextMenu",
+    async (msg) => {
+      const { selectionText } = msg.data
+      if (!selectionText)
+        return
+
+      const config = await getLocalConfig()
+      if (!config)
+        return
+
+      const providerConfig = getProviderConfigById(
+        config.providersConfig,
+        config.translate.providerId,
+      )
+      if (!providerConfig)
+        return
+
+      try {
+        const result = await translateTextCore({
+          text: selectionText,
+          langConfig: config.language,
+          providerConfig,
+          enableAIContentAware: config.translate.enableAIContentAware && isLLMProviderConfig(providerConfig),
+          extraHashTags: ["context-menu"],
+        })
+        showTranslationTooltip(selectionText, result)
+      }
+      catch (error) {
+        logger.error("Context menu translation failed:", error)
+        showTranslationTooltip(selectionText, "翻译失败，请检查 API 配置")
+      }
+    },
+  )
+
   ctx.onInvalidated(() => {
     removeHostToast()
     cleanupUrlListener()
@@ -106,6 +147,7 @@ export async function bootstrapHostContent(ctx: ContentScriptContext, initialCon
     cleanupTranslationStateListener()
     cleanupFrameTranslationStateListener()
     cleanupDetectedLanguageRefreshListener()
+    cleanupContextMenuTranslationListener()
     window.removeEventListener("extension:URLChange", handleExtensionUrlChange)
     window.__READ_FROG_HOST_INJECTED__ = false
   })
